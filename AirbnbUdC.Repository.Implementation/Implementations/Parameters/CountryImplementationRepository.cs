@@ -15,9 +15,9 @@ namespace AirbnbUdC.Repository.Implementation.Implementations.Parameters
         {
             using (Core_DBEntities db = new Core_DBEntities())
             {
-                if (db.Country.Any(country => country.CountryName.Equals(record.CountryName))) {
+                if (db.Country.Any(country => country.CountryName.Equals(record.CountryName)))
                     throw new AirException(MessagesCountry.CountryExit);
-                }
+                
                 else
                 {
                     CountryMapperRepository countryMapperRepository = new CountryMapperRepository();
