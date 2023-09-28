@@ -26,6 +26,7 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.parameters
         {
             return new CountryDbModel()
             {
+                CountryId = value.Id,
                 CountryName = value.CountryName
             };
         }
@@ -34,6 +35,7 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.parameters
         {
             return new Country()
             {
+                Id = value.CountryId,
                 CountryName = value.CountryName
             };
         }
