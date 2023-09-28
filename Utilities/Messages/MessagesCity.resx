@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CountryExists" xml:space="preserve">
-    <value>Ya existe un país con ese nombre</value>
+  <data name="CityExists" xml:space="preserve">
+    <value>La ciudad ya existe</value>
   </data>
-  <data name="CountryNotExists" xml:space="preserve">
-    <value>El país no existe</value>
+  <data name="CityNotExists" xml:space="preserve">
+    <value>La ciudad no existe</value>
   </data>
 </root>

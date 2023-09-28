@@ -41,7 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\MessagesConstants\MessagesConstantsCity.cs" />
+    <Compile Include="Constants\MessagesConstants\MessagesConstantsCountry.cs" />
     <Compile Include="Exceptions\AirException.cs" />
+    <Compile Include="Messages\MessagesCity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessagesCity.resx</DependentUpon>
+    </Compile>
     <Compile Include="Messages\MessagesCountry.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -50,6 +57,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Messages\MessagesCity.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessagesCity.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Messages\MessagesCountry.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MessagesCountry.Designer.cs</LastGenOutput>

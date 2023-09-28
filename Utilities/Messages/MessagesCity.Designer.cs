@@ -22,14 +22,14 @@ namespace Utilities.Messages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class MessagesCountry {
+    public class MessagesCity {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MessagesCountry() {
+        internal MessagesCity() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Utilities.Messages {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Utilities.Messages.MessagesCountry", typeof(MessagesCountry).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Utilities.Messages.MessagesCity", typeof(MessagesCity).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,20 @@ namespace Utilities.Messages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ya existe un país con ese nombre.
+        ///   Busca una cadena traducida similar a La ciudad ya existe.
         /// </summary>
-        public static string CountryExists {
+        public static string CityExists {
             get {
-                return ResourceManager.GetString("CountryExists", resourceCulture);
+                return ResourceManager.GetString("CityExists", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El país no existe.
+        ///   Busca una cadena traducida similar a La ciudad no existe.
         /// </summary>
-        public static string CountryNotExists {
+        public static string CityNotExists {
             get {
-                return ResourceManager.GetString("CountryNotExists", resourceCulture);
+                return ResourceManager.GetString("CityNotExists", resourceCulture);
             }
         }
     }
