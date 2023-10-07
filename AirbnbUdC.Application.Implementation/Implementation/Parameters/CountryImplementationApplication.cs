@@ -19,6 +19,11 @@ namespace AirbnbUdC.Application.Implementation.Implementation.Parameters
             this._countryRepository = new CountryImplementationRepository();
         }
 
+        /// <summary>
+        /// Metodo para crear un registro en la tabla Country
+        /// </summary>
+        /// <param name="record"></param>
+        /// <returns></returns>
         public CountryDto CreateRecord(CountryDto record)
         {
             CountryMapperApplication mapper = new CountryMapperApplication();
@@ -27,12 +32,22 @@ namespace AirbnbUdC.Application.Implementation.Implementation.Parameters
             return mapper.MapT1toT2(created);
         }
 
+        /// <summary>
+        /// Metodo para eliminar un registro de la tabla Country
+        /// </summary>
+        /// <param name="recordId"></param>
+        /// <returns></returns>
         public bool DeleteRecord(int recordId)
         {
             var deleted = this._countryRepository.DeleteRecord(recordId);
             return deleted;
         }
 
+        /// <summary>
+        /// Metodo para obtener todos los registros de la tabla Country
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         public IEnumerable<CountryDto> GetAllRecords(string filter)
         {
             CountryMapperApplication mapper = new CountryMapperApplication();
@@ -40,6 +55,11 @@ namespace AirbnbUdC.Application.Implementation.Implementation.Parameters
             return mapper.MapListT1toT2(records);
         }
 
+        /// <summary>
+        /// Metodo para obtener un registro de la tabla Country por Id
+        /// </summary>
+        /// <param name="recordId"></param>
+        /// <returns></returns>
         public CountryDto GetRecord(int recordId)
         {
             CountryMapperApplication mapper = new CountryMapperApplication();
@@ -48,6 +68,11 @@ namespace AirbnbUdC.Application.Implementation.Implementation.Parameters
 
         }
 
+        /// <summary>
+        /// Metodo para actualizar un registro en la tabla Country
+        /// </summary>
+        /// <param name="record"></param>
+        /// <returns></returns>
         public int UpdateRecord(CountryDto record)
         {
             CountryMapperApplication mapper = new CountryMapperApplication();

@@ -13,25 +13,25 @@ namespace AirbnbUdC.Repository.Implementation.Implementations.Parameters
     public class CityImplementationRepository : ICityRepository
     {
         /// <summary>
-        /// Metodo para guardar un registro en la BD
+        /// Metodo para guardar un registro de City en la BD
         /// </summary>
         /// <param name="record"></param>
-        /// <returns>El registro guardado con id cuando se guarda o sin id cuando returns>
-        /// <exception cref="AirException">Excepcion de la aplicacionc cuando el City ya existe en la BD</exception>
+        /// <returns>El registro guardado con id cuando se guarda o excepcion returns>
+        /// <exception cref="AirException">Excepcion de la aplicacionc cuando la City ya existe en la BD</exception>
         public CityDbModel CreateRecord(CityDbModel record)
         {
             using (Core_DBEntities db = new Core_DBEntities())
             {
-                if (db.City.Any(country => country.CityName.Equals(record.CityName)))
+                if (db.City.Any(city => city.CityName.Equals(record.CityName)))
                     throw new AirException(MessagesCity.CityExists);
 
                 else
                 {
-                    CityMapperRepository countryMapperRepository = new CityMapperRepository();
-                    var country = countryMapperRepository.MapT2toT1(record);
-                    var countryDb = db.City.Add(country);
+                    CityMapperRepository cityMapperRepository = new CityMapperRepository();
+                    var city = cityMapperRepository.MapT2toT1(record);
+                    var cityDb = db.City.Add(city);
                     db.SaveChangesAsync();
-                    var response = countryMapperRepository.MapT1toT2(countryDb);
+                    var response = cityMapperRepository.MapT1toT2(cityDb);
                     return response;
                 }
             }
@@ -117,5 +117,24 @@ namespace AirbnbUdC.Repository.Implementation.Implementations.Parameters
                 return db.SaveChanges();
             }
         }
+
+        /// <summary>
+        /// Método para obtener todos los registros de City en la base de datos por Id de país
+        /// </summary>
+        /// <param name="countryId">Id del país</param>
+        /// <returns>Lista de ciudades</returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public IEnumerable<CityDbModel> GetAllRecordsByCountryId(int countryId)
+        {
+            using (Core_DBEntities db = new Core_DBEntities())
+            {
+                var records = (from c in db.City
+                               where c.CountryId == countryId
+                               select c);
+                CityMapperRepository mapper = new CityMapperRepository();
+                return mapper.MapListT1toT2(records);
+            }
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AirbnbUdC.Application.Contracts.DTO.Parameters;
+using AirbnbUdC.Repository.Contracts.DbModel.Parameters;
 using System.Collections.Generic;
 
 namespace AirbnbUdC.Application.Contracts.Contracts.Parameters
@@ -10,5 +11,6 @@ namespace AirbnbUdC.Application.Contracts.Contracts.Parameters
         int UpdateRecord(CityDto record);
         CityDto GetRecord(int recordId);
         IEnumerable<CityDto> GetAllRecords(string filter);
+        IEnumerable<CityDto> GetAllRecordsByCountryId(int countryId);
     }
 }
