@@ -43,9 +43,11 @@
   <ItemGroup>
     <Compile Include="Implementation\Parameters\CityImplementationApplication.cs" />
     <Compile Include="Implementation\Parameters\CountryImplementationApplication.cs" />
+    <Compile Include="Implementation\Parameters\MultimediaTypeImplementationApplication.cs" />
     <Compile Include="Mappers\BaseMapperApplication.cs" />
     <Compile Include="Mappers\Parameters\CityMapperApplication.cs" />
     <Compile Include="Mappers\Parameters\CountryMapperApplication.cs" />
+    <Compile Include="Mappers\Parameters\MultimediaTypeMapperApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

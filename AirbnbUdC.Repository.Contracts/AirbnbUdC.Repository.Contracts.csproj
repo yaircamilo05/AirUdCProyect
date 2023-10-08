@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="Contrats\Parameters\ICityRepository.cs" />
     <Compile Include="Contrats\Parameters\ICountryRepository.cs" />
+    <Compile Include="Contrats\Parameters\IMultimediaTypeRepository.cs" />
     <Compile Include="DbModel\Parameters\CityDbModel.cs" />
     <Compile Include="DbModel\Parameters\CountryDbModel.cs" />
+    <Compile Include="DbModel\Parameters\MultimediaTypeDbModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

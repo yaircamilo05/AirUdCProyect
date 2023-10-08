@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="Contracts\Parameters\ICityApplication.cs" />
     <Compile Include="Contracts\Parameters\ICountryApplication.cs" />
+    <Compile Include="Contracts\Parameters\IMultimediaTypeApplication.cs" />
     <Compile Include="DTO\Parameters\CityDto.cs" />
     <Compile Include="DTO\Parameters\CountryDto.cs" />
+    <Compile Include="DTO\Parameters\MultimediaTypeDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -30,7 +30,7 @@ namespace AirbnbUdC.Repository.Implementation.Implementations.Parameters
                     CityMapperRepository cityMapperRepository = new CityMapperRepository();
                     var city = cityMapperRepository.MapT2toT1(record);
                     var cityDb = db.City.Add(city);
-                    db.SaveChangesAsync();
+                    db.SaveChanges();
                     var response = cityMapperRepository.MapT1toT2(cityDb);
                     return response;
                 }

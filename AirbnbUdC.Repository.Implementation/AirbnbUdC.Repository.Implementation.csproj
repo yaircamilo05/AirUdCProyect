@@ -94,9 +94,11 @@
     </Compile>
     <Compile Include="Implementations\Parameters\CityImplementationRepository.cs" />
     <Compile Include="Implementations\Parameters\CountryImplementationRepository.cs" />
+    <Compile Include="Implementations\Parameters\MultimediaTypeImplementationRepository.cs" />
     <Compile Include="Mappers\BaseMapperRepository.cs" />
-    <Compile Include="Mappers\parameters\CityMapperRepository.cs" />
-    <Compile Include="Mappers\parameters\CountryMapperRepository.cs" />
+    <Compile Include="Mappers\Parameters\CityMapperRepository.cs" />
+    <Compile Include="Mappers\Parameters\CountryMapperRepository.cs" />
+    <Compile Include="Mappers\Parameters\MultimediaTypeMapperRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
