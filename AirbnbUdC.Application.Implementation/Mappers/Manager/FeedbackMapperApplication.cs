@@ -1,5 +1,4 @@
 ﻿using AirbnbUdC.Application.Contracts.DTO.Manager;
-using AirbnbUdC.Application.Contracts.DTO.Parameters;
 using AirbnbUdC.Repository.Contracts.DbModel.Manager;
 using System.Collections.Generic;
 
