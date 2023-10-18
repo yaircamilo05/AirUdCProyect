@@ -41,9 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\Manager\FeedbackImplementationApplication.cs" />
+    <Compile Include="Implementation\Manager\ReservationImplementationApplication.cs" />
     <Compile Include="Implementation\Parameters\CityImplementationApplication.cs" />
     <Compile Include="Implementation\Parameters\CountryImplementationApplication.cs" />
     <Compile Include="Mappers\BaseMapperApplication.cs" />
+    <Compile Include="Mappers\Manager\FeedbackMapperApplication.cs" />
+    <Compile Include="Mappers\Manager\ReservationMapperApplication.cs" />
     <Compile Include="Mappers\Parameters\CityMapperApplication.cs" />
     <Compile Include="Mappers\Parameters\CountryMapperApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -92,9 +92,13 @@
     <Compile Include="DataModel\Reservation.cs">
       <DependentUpon>DataModelCore.tt</DependentUpon>
     </Compile>
+    <Compile Include="Implementations\Manager\FeebackImplementationRepository.cs" />
+    <Compile Include="Implementations\Manager\ReservationImplementationRepository.cs" />
     <Compile Include="Implementations\Parameters\CityImplementationRepository.cs" />
     <Compile Include="Implementations\Parameters\CountryImplementationRepository.cs" />
     <Compile Include="Mappers\BaseMapperRepository.cs" />
+    <Compile Include="Mappers\Manager\FeedbackMapperRepository.cs" />
+    <Compile Include="Mappers\Manager\ReservationMapperRepository.cs" />
     <Compile Include="Mappers\parameters\CityMapperRepository.cs" />
     <Compile Include="Mappers\parameters\CountryMapperRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
