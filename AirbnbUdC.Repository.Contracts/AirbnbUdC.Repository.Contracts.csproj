@@ -41,9 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contrats\Manager\IFeedbackRepository.cs" />
+    <Compile Include="Contrats\Manager\IReservationRepository.cs" />
     <Compile Include="Contrats\Parameters\ICityRepository.cs" />
     <Compile Include="Contrats\Parameters\ICountryRepository.cs" />
     <Compile Include="Contrats\Parameters\IMultimediaTypeRepository.cs" />
+    <Compile Include="DbModel\Manager\FeedbackDbModel.cs" />
+    <Compile Include="DbModel\Manager\ReservationDbModel.cs" />
     <Compile Include="DbModel\Parameters\CityDbModel.cs" />
     <Compile Include="DbModel\Parameters\CountryDbModel.cs" />
     <Compile Include="DbModel\Parameters\MultimediaTypeDbModel.cs" />

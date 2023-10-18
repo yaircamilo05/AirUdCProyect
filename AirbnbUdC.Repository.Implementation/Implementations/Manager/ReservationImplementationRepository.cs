@@ -4,9 +4,9 @@ using AirbnbUdC.Repository.Implementation.DataModel;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Utilities.Exceptions;
-using Utilities.Messages;
 using AirbnbUdC.Repository.Implementation.Mappers.Manager;
+using Utilities.Messages;
+using Utilities.Exceptions;
 
 namespace AirbnbUdC.Repository.Implementation.Implementations.Manager
 {

@@ -178,6 +178,8 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Manager\FeedbackModel.cs" />
+    <Compile Include="Models\Manager\ReservationModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Parameters\CityModel.cs" />
     <Compile Include="Models\Parameters\CountryModel.cs" />
@@ -294,7 +296,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AirbnbUdC.Application.Contracts\AirbnbUdC.Application.Contracts.csproj">
-      <Project>{84b94bd9-df0b-4f00-9f6a-1e4517d701d1}</Project>
+      <Project>{84B94BD9-DF0B-4F00-9F6A-1E4517D701D1}</Project>
       <Name>AirbnbUdC.Application.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">

@@ -92,10 +92,16 @@
     <Compile Include="DataModel\Reservation.cs">
       <DependentUpon>DataModelCore.tt</DependentUpon>
     </Compile>
+    <Compile Include="Implementations\Manager\FeebackImplementationRepository.cs" />
+    <Compile Include="Implementations\Manager\ReservationImplementationRepository.cs" />
     <Compile Include="Implementations\Parameters\CityImplementationRepository.cs" />
     <Compile Include="Implementations\Parameters\CountryImplementationRepository.cs" />
     <Compile Include="Implementations\Parameters\MultimediaTypeImplementationRepository.cs" />
     <Compile Include="Mappers\BaseMapperRepository.cs" />
+    <Compile Include="Mappers\Manager\FeedbackMapperRepository.cs" />
+    <Compile Include="Mappers\Manager\ReservationMapperRepository.cs" />
+    <Compile Include="Mappers\parameters\CityMapperRepository.cs" />
+    <Compile Include="Mappers\parameters\CountryMapperRepository.cs" />
     <Compile Include="Mappers\Parameters\CityMapperRepository.cs" />
     <Compile Include="Mappers\Parameters\CountryMapperRepository.cs" />
     <Compile Include="Mappers\Parameters\MultimediaTypeMapperRepository.cs" />
@@ -135,7 +141,7 @@
       <Name>AirbnbUdC.Repository.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
-      <Project>{34067203-b94a-49a8-b278-5669adae2a0a}</Project>
+      <Project>{34067203-B94A-49A8-B278-5669ADAE2A0A}</Project>
       <Name>Utilities</Name>
     </ProjectReference>
   </ItemGroup>

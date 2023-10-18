@@ -41,10 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\Manager\FeedbackImplementationApplication.cs" />
+    <Compile Include="Implementation\Manager\ReservationImplementationApplication.cs" />
     <Compile Include="Implementation\Parameters\CityImplementationApplication.cs" />
     <Compile Include="Implementation\Parameters\CountryImplementationApplication.cs" />
     <Compile Include="Implementation\Parameters\MultimediaTypeImplementationApplication.cs" />
     <Compile Include="Mappers\BaseMapperApplication.cs" />
+    <Compile Include="Mappers\Manager\FeedbackMapperApplication.cs" />
+    <Compile Include="Mappers\Manager\ReservationMapperApplication.cs" />
     <Compile Include="Mappers\Parameters\CityMapperApplication.cs" />
     <Compile Include="Mappers\Parameters\CountryMapperApplication.cs" />
     <Compile Include="Mappers\Parameters\MultimediaTypeMapperApplication.cs" />
@@ -52,11 +56,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AirbnbUdC.Application.Contracts\AirbnbUdC.Application.Contracts.csproj">
-      <Project>{84b94bd9-df0b-4f00-9f6a-1e4517d701d1}</Project>
+      <Project>{84B94BD9-DF0B-4F00-9F6A-1E4517D701D1}</Project>
       <Name>AirbnbUdC.Application.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\AirbnbUdC.Repository.Contracts\AirbnbUdC.Repository.Contracts.csproj">
-      <Project>{1f80c2b6-a34a-4af6-a5a0-366f766e00c1}</Project>
+      <Project>{1F80C2B6-A34A-4AF6-A5A0-366F766E00C1}</Project>
       <Name>AirbnbUdC.Repository.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\AirbnbUdC.Repository.Implementation\AirbnbUdC.Repository.Implementation.csproj">
@@ -64,6 +68,5 @@
       <Name>AirbnbUdC.Repository.Implementation</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

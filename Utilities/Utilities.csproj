@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="Constants\MessagesConstants\MessagesConstantsCity.cs" />
     <Compile Include="Constants\MessagesConstants\MessagesConstantsCountry.cs" />
+    <Compile Include="Constants\MessagesConstants\MessagesConstantsFeedback.cs" />
+    <Compile Include="Constants\MessagesConstants\MessagesConstantsReservation.cs" />
+    <Compile Include="Constants\MessagesConstants\MessagesConstsPropertyMultimedia.cs" />
     <Compile Include="Constants\MessagesConstants\MessagesConstantsMultimediaType.cs" />
     <Compile Include="Exceptions\AirException.cs" />
     <Compile Include="Messages\MessagesMultimediaType.Designer.cs">
@@ -60,6 +63,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessagesCountry.resx</DependentUpon>
     </Compile>
+    <Compile Include="Messages\MessagesFeedBack.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessagesFeedBack.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Messages\MessagesPropertyMultimedia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessagesPropertyMultimedia.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Messages\MessagesReservation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessagesReservation.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +92,18 @@
     <EmbeddedResource Include="Messages\MessagesCountry.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MessagesCountry.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Messages\MessagesFeedBack.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessagesFeedBack.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Messages\MessagesPropertyMultimedia.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessagesPropertyMultimedia.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Messages\MessagesReservation.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessagesReservation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
