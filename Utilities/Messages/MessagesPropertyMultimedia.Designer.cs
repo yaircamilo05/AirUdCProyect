@@ -59,5 +59,14 @@ namespace Utilities.Messages {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La multimedia de la propiedad no existe.
+        /// </summary>
+        public static string PropertyMultimediaNotExists {
+            get {
+                return ResourceManager.GetString("PropertyMultimediaNotExists", resourceCulture);
+            }
+        }
     }
 }
