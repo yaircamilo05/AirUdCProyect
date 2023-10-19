@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PropertyOwnerExists" xml:space="preserve">
-    <value>el correo ya esta registrado</value>
+  <data name="PropertyExists" xml:space="preserve">
+    <value>la propieda ya existe</value>
   </data>
-  <data name="PropertyOwnerNotExists" xml:space="preserve">
-    <value>el propieratrio no existe</value>
+  <data name="PropertyNotExists" xml:space="preserve">
+    <value>La propiedad No existe</value>
   </data>
 </root>

@@ -22,14 +22,14 @@ namespace Utilities.Messages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class MessagesPropertyOwner {
+    public class MessagesProperty {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MessagesPropertyOwner() {
+        internal MessagesProperty() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Utilities.Messages {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Utilities.Messages.MessagesPropertyOwner", typeof(MessagesPropertyOwner).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Utilities.Messages.MessagesProperty", typeof(MessagesProperty).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,20 @@ namespace Utilities.Messages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a el correo ya esta registrado.
+        ///   Busca una cadena traducida similar a la propieda ya existe.
         /// </summary>
-        public static string PropertyOwnerExists {
+        public static string PropertyExists {
             get {
-                return ResourceManager.GetString("PropertyOwnerExists", resourceCulture);
+                return ResourceManager.GetString("PropertyExists", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a el propieratrio no existe.
+        ///   Busca una cadena traducida similar a La propiedad No existe.
         /// </summary>
-        public static string PropertyOwnerNotExists {
+        public static string PropertyNotExists {
             get {
-                return ResourceManager.GetString("PropertyOwnerNotExists", resourceCulture);
+                return ResourceManager.GetString("PropertyNotExists", resourceCulture);
             }
         }
     }

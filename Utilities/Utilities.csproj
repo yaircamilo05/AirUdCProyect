@@ -44,10 +44,21 @@
     <Compile Include="Constants\MessagesConstants\MessagesConstantsCity.cs" />
     <Compile Include="Constants\MessagesConstants\MessagesConstantsCountry.cs" />
     <Compile Include="Constants\MessagesConstants\MessagesConstantsFeedback.cs" />
+    <Compile Include="Constants\MessagesConstants\MessagesConstantsPropertyOwner.cs" />
     <Compile Include="Constants\MessagesConstants\MessagesConstantsReservation.cs" />
     <Compile Include="Constants\MessagesConstants\MessagesConstsPropertyMultimedia.cs" />
     <Compile Include="Constants\MessagesConstants\MessagesConstantsMultimediaType.cs" />
     <Compile Include="Exceptions\AirException.cs" />
+    <Compile Include="Messages\MessagesProperty.Designer.cs">
+      <DependentUpon>MessagesProperty.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Messages\MessagesCustomer.Designer.cs">
+      <DependentUpon>MessagesCustomer.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Messages\MessagesPropertyOwner.Designer.cs">
       <DependentUpon>MessagesPropertyOwner.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -86,6 +97,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Messages\MessagesProperty.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessagesProperty.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Messages\MessagesCustomer.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessagesCustomer.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Messages\MessagesPropertyOwner.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MessagesPropertyOwner.Designer.cs</LastGenOutput>
