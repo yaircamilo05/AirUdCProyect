@@ -179,6 +179,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Manager\FeedbackModel.cs" />
+    <Compile Include="Models\Manager\PropertyOwnerModel.cs" />
     <Compile Include="Models\Manager\ReservationModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Parameters\CityModel.cs" />
