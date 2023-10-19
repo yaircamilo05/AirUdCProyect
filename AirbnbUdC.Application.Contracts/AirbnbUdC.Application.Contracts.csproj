@@ -41,20 +41,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Manager\ICustomerApplication.cs" />
     <Compile Include="Contracts\Manager\IFeedbackApplication.cs" />
+    <Compile Include="Contracts\Manager\IPropertyApplication.cs" />
+    <Compile Include="Contracts\Manager\IPropertyOwnerApplication.cs" />
     <Compile Include="Contracts\Manager\IMultimdiaTypeApplication.cs" />
     <Compile Include="Contracts\Manager\IPropertyMultimediaApplication.cs" />
     <Compile Include="Contracts\Manager\IReservationApplication.cs" />
     <Compile Include="Contracts\Parameters\ICityApplication.cs" />
     <Compile Include="Contracts\Parameters\ICountryApplication.cs" />
+    <Compile Include="DTO\Manager\CustomerDto.cs" />
     <Compile Include="DTO\Manager\FeedbackDto.cs" />
     <Compile Include="Contracts\Parameters\IMultimediaTypeApplication.cs" />
+    <Compile Include="DTO\Manager\PropertyDto.cs" />
     <Compile Include="DTO\Manager\PropertyMultimediaDto.cs" />
     <Compile Include="DTO\Parameters\CityDto.cs" />
     <Compile Include="DTO\Parameters\CountryDto.cs" />
     <Compile Include="DTO\Manager\ReservationDto.cs" />
     <Compile Include="DTO\Parameters\MultimediaTypeDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTO\Manager\PropertyOwnerDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
