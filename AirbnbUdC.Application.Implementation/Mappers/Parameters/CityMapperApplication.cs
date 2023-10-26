@@ -8,18 +8,22 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Parameters
     {
         public override IEnumerable<CityDto> MapListT1toT2(IEnumerable<CityDbModel> value)
         {
-            foreach (var country in value)
+            IList<CityDto> list = new List<CityDto>();
+            foreach (var city in value)
             {
-                yield return MapT1toT2(country);
+                list.Add(MapT1toT2(city));
             }
+            return list;
         }
 
         public override IEnumerable<CityDbModel> MapListT2toT1(IEnumerable<CityDto> value)
         {
-            foreach (var country in value)
+            IList<CityDbModel> list = new List<CityDbModel>();
+            foreach (var city in value)
             {
-                yield return MapT2toT1(country);
+                list.Add(MapT2toT1(city));
             }
+            return list;
         }
 
         public override CityDto MapT1toT2(CityDbModel value)

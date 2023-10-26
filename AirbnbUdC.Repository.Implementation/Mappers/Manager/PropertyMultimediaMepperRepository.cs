@@ -14,18 +14,22 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.Manager
         }
         public override IEnumerable<PropertyMultimediaDbModel> MapListT1toT2(IEnumerable<PropertyMultimedia> value)
         {
-            foreach (var PropertyMultimedia in value)
+            IList<PropertyMultimediaDbModel> list = new List<PropertyMultimediaDbModel>();
+            foreach (var property in value)
             {
-                yield return MapT1toT2(PropertyMultimedia);
+                list.Add(MapT1toT2(property));
             }
+            return list;
         }
 
         public override IEnumerable<PropertyMultimedia> MapListT2toT1(IEnumerable<PropertyMultimediaDbModel> value)
         {
-            foreach (var PropertyMultimedia in value)
+            IList<PropertyMultimedia> list = new List<PropertyMultimedia>();
+            foreach (var property in value)
             {
-                yield return MapT2toT1(PropertyMultimedia);
+                list.Add(MapT2toT1(property));
             }
+            return list;
         }
 
         public override PropertyMultimediaDbModel MapT1toT2(PropertyMultimedia value)

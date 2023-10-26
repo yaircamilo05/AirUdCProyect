@@ -12,18 +12,22 @@ namespace AirUdC.GUI.Mappers.Parameters
         }
         public override IEnumerable<CityModel> MapListT1toT2(IEnumerable<CityDto> value)
         {
-            foreach (var country in value)
+            IList<CityModel> list = new List<CityModel>();
+            foreach (var city in value)
             {
-                yield return MapT1toT2(country);
+                list.Add(MapT1toT2(city));
             }
+            return list;
         }
 
         public override IEnumerable<CityDto> MapListT2toT1(IEnumerable<CityModel> value)
         {
-            foreach (var country in value)
+            IList<CityDto> list = new List<CityDto>();
+            foreach (var city in value)
             {
-                yield return MapT2toT1(country);
+                list.Add(MapT2toT1(city));
             }
+            return list;
         }
 
         public override CityModel MapT1toT2(CityDto value)
