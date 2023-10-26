@@ -29,5 +29,7 @@ namespace AirUdC.GUI.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<AirUdC.GUI.Models.Manager.CustomerModel> CustomerModels { get; set; }
     }
 }

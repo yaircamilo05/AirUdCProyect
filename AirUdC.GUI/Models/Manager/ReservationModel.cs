@@ -1,9 +1,14 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace AirUdC.GUI.Models.Manager
 {
     public class ReservationModel
     {
+        [Key]
+        [DisplayName("Id de la reserva")]
+        public long ReservationId { get; set; }
+
         [DisplayName("Precio Reserva")]
         public decimal Price { get; set; }
 

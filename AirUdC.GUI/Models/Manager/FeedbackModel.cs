@@ -1,10 +1,15 @@
 ﻿using AirbnbUdC.Application.Contracts.DTO.Parameters;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace AirUdC.GUI.Models.Manager
 {
     public class FeedbackModel
     {
+        [Key]
+        [DisplayName("Id del Feedback")]
+        public long FeedbackId { get; set; }
+
         [DisplayName("Calificación Propietario")]
         public int? RateForOwner { get; set; }
         [DisplayName("Comentarios Propietario")]

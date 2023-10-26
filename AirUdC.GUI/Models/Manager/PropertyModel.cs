@@ -1,10 +1,13 @@
 ﻿using AirbnbUdC.Application.Contracts.DTO.Manager;
 using AirbnbUdC.Application.Contracts.DTO.Parameters;
+using System.ComponentModel.DataAnnotations;
 
 namespace AirUdC.GUI.Models.Manager
 {
     public class PropertyModel
     {
+        [Key]
+        [Display(Name = "Id de la propiedad")]
         public long PropertyId { get; set; }
         public string PropertyAddress { get; set; }
         public CityDto city { get; set; }
