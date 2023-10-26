@@ -30,6 +30,10 @@ namespace AirUdC.GUI.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<AirUdC.GUI.Models.Manager.CustomerModel> CustomerModels { get; set; }
+        public System.Data.Entity.DbSet<AirUdC.GUI.Models.Parameters.CountryModel> CountryModels { get; set; }
+
+        public System.Data.Entity.DbSet<AirUdC.GUI.Models.Parameters.CityModel> CityModels { get; set; }
+
+        object placeHolderVariable;
     }
 }

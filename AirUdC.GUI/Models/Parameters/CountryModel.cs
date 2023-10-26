@@ -6,6 +6,7 @@ namespace AirUdC.GUI.Models.Parameters
 {
     public class CountryModel
     {
+        [Key]
         [DisplayName("País")]
         public int CountryId { get; set; }
 
