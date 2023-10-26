@@ -5,19 +5,18 @@ using System.Web.Mvc;
 using AirbnbUdC.Application.Contracts.Contracts.Manager;
 using AirbnbUdC.Application.Implementation.Implementation.Manager;
 using AirUdC.GUI.Mappers.Parameters;
+using AirUdC.GUI.Models;
 using AirUdC.GUI.Models.Manager;
 
 namespace AirUdC.GUI.Controllers.Manager
 {
     public class PropertyOwnerController : Controller
     {
-        private readonly IPropertyOwnerApplication _app;
-        private readonly CountryMapperGUI _countryMapper;
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         public PropertyOwnerController()
         {
-            _app = new PropertyOwnerImplementationApplication();
-            _countryMapper = new CountryMapperGUI();
+
         }
 
         // GET: PropertyOwner
