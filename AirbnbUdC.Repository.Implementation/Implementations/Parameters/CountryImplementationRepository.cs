@@ -31,7 +31,7 @@ namespace AirbnbUdC.Repository.Implementation.Implementations.Parameters
                     CountryMapperRepository countryMapperRepository = new CountryMapperRepository();
                     var country = countryMapperRepository.MapT2toT1(record);
                     var countryDb = db.Country.Add(country);
-                    db.SaveChangesAsync();
+                    db.SaveChanges();
                     var response = countryMapperRepository.MapT1toT2(countryDb);
                     return response;
                 }
