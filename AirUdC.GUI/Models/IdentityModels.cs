@@ -35,5 +35,6 @@ namespace AirUdC.GUI.Models
         public System.Data.Entity.DbSet<AirUdC.GUI.Models.Parameters.CityModel> CityModels { get; set; }
 
         object placeHolderVariable;
+        public System.Data.Entity.DbSet<AirUdC.GUI.Models.Manager.CustomerModel> CustomerModels { get; set; }
     }
 }
