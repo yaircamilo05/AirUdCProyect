@@ -6,6 +6,7 @@ namespace AirUdC.GUI.Models.Parameters
 {
     public class CityModel
     {
+        [Key]
         [DisplayName("Ciudad")]
         public int CityId { get; set; }
 

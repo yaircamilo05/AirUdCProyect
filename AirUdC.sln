@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Utilities", "4.Utilities"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{34067203-B94A-49A8-B278-5669ADAE2A0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaControladores", "PruebaControladores\PruebaControladores.csproj", "{11FEEA84-E013-445F-8772-768FE917F307}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{34067203-B94A-49A8-B278-5669ADAE2A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34067203-B94A-49A8-B278-5669ADAE2A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34067203-B94A-49A8-B278-5669ADAE2A0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11FEEA84-E013-445F-8772-768FE917F307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11FEEA84-E013-445F-8772-768FE917F307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11FEEA84-E013-445F-8772-768FE917F307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11FEEA84-E013-445F-8772-768FE917F307}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
