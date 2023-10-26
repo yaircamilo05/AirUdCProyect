@@ -8,10 +8,12 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.parameters
     {
         public override IEnumerable<CountryDbModel> MapListT1toT2(IEnumerable<Country> value)
         {
-           foreach (var country in value)
+            IList<CountryDbModel> list = new List<CountryDbModel>();
+            foreach (var country in value)
             {
-                yield return MapT1toT2(country);
+                list.Add(MapT1toT2(country));
             }
+            return list;
         }
 
         public override IEnumerable<Country> MapListT2toT1(IEnumerable<CountryDbModel> value)
@@ -26,6 +28,7 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.parameters
         {
             return new CountryDbModel()
             {
+                CountryId = value.Id,
                 CountryName = value.CountryName
             };
         }
@@ -34,6 +37,7 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.parameters
         {
             return new Country()
             {
+                Id = value.CountryId,
                 CountryName = value.CountryName
             };
         }

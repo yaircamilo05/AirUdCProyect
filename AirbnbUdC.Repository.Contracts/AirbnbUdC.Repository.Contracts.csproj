@@ -41,9 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contrats\Manager\ICustomerRepository.cs" />
+    <Compile Include="Contrats\Manager\IFeedbackRepository.cs" />
+    <Compile Include="Contrats\Manager\IPropertyOwnerRepository.cs" />
+    <Compile Include="Contrats\Manager\IPropertyRepository.cs" />
+    <Compile Include="Contrats\Manager\IPropertyMultimediaRepository.cs" />
+    <Compile Include="Contrats\Manager\IReservationRepository.cs" />
+    <Compile Include="Contrats\Parameters\ICityRepository.cs" />
     <Compile Include="Contrats\Parameters\ICountryRepository.cs" />
+    <Compile Include="Contrats\Parameters\IMultimediaTypeRepository.cs" />
+    <Compile Include="DbModel\Manager\CustomerDbModel.cs" />
+    <Compile Include="DbModel\Manager\FeedbackDbModel.cs" />
+    <Compile Include="DbModel\Manager\PropertyDbModel.cs" />
+    <Compile Include="DbModel\Manager\PropertyOwnerDbModel.cs" />
+    <Compile Include="DbModel\Manager\PropertyMultimediaDbModel.cs" />
+    <Compile Include="DbModel\Manager\ReservationDbModel.cs" />
     <Compile Include="DbModel\Parameters\CityDbModel.cs" />
     <Compile Include="DbModel\Parameters\CountryDbModel.cs" />
+    <Compile Include="DbModel\Parameters\MultimediaTypeDbModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

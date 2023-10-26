@@ -61,11 +61,20 @@ namespace Utilities.Messages {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ya existe una ciudad con ese nombre.
+        ///   Busca una cadena traducida similar a Ya existe un país con ese nombre.
         /// </summary>
-        public static string CountryExit {
+        public static string CountryExists {
             get {
-                return ResourceManager.GetString("CountryExit", resourceCulture);
+                return ResourceManager.GetString("CountryExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El país no existe.
+        /// </summary>
+        public static string CountryNotExists {
+            get {
+                return ResourceManager.GetString("CountryNotExists", resourceCulture);
             }
         }
     }
