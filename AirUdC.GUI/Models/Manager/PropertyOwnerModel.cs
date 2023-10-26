@@ -6,7 +6,6 @@ namespace AirUdC.GUI.Models.Manager
     public class PropertyOwnerModel
     {
         [Key]
-        [Display(Name = "Id del propietario")]
         public long PropertyOwnerId { get; set; }
         [DisplayName("Nombre")]
         public string FirstName { get; set; }

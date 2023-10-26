@@ -173,11 +173,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Manager\CustomerController.cs" />
+    <Compile Include="Controllers\Manager\PropertyOwnerController.cs" />
     <Compile Include="Controllers\Parameters\CityController.cs" />
     <Compile Include="Controllers\Parameters\CountryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mappers\Manager\PropertyOwnerMapperGUI.cs" />
     <Compile Include="Mappers\MapperBaseGUI.cs" />
     <Compile Include="Mappers\Parameters\CityMapperGUI.cs" />
     <Compile Include="Mappers\Parameters\CountryMapperGUI.cs" />
@@ -282,6 +284,11 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\PropertyOwner\Create.cshtml" />
+    <Content Include="Views\PropertyOwner\Delete.cshtml" />
+    <Content Include="Views\PropertyOwner\Details.cshtml" />
+    <Content Include="Views\PropertyOwner\Edit.cshtml" />
+    <Content Include="Views\PropertyOwner\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
