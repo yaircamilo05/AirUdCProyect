@@ -6,6 +6,7 @@ namespace AirUdC.GUI.Models.Parameters
 {
     public class MultimediaTypeModel
     {
+        [Key]
         [DisplayName("Tipo de Multimedia")]
         public int MultimediaTypeId { get; set; }
 

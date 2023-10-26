@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace AirUdC.GUI.Models.Manager
 {
     public class CustomerModel
     {
+
+        [Key]
+        public long CustomerId { get; set; }
+
         [DisplayName("Nombre")]
         public string FirstName { get; set; }
         [DisplayName("Apellido")]
