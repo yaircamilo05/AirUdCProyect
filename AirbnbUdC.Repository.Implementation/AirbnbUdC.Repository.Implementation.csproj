@@ -109,8 +109,6 @@
     <Compile Include="Mappers\Manager\PropertyMultimediaMepperRepository.cs" />
     <Compile Include="Mappers\Manager\ReservationMapperRepository.cs" />
     <Compile Include="Mappers\parameters\CityMapperRepository.cs" />
-    <Compile Include="Mappers\parameters\CountryMapperRepository.cs" />
-    <Compile Include="Mappers\Parameters\CityMapperRepository.cs" />
     <Compile Include="Mappers\Parameters\CountryMapperRepository.cs" />
     <Compile Include="Mappers\Parameters\MultimediaTypeMapperRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

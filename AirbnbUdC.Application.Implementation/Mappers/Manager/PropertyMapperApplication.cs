@@ -9,18 +9,22 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Manager
     {
         public override IEnumerable<PropertyDto> MapListT1toT2(IEnumerable<PropertyDbModel> value)
         {
+            IList<PropertyDto> list = new List<PropertyDto>();
             foreach (var property in value)
             {
-                yield return MapT1toT2(property);
+                list.Add(MapT1toT2(property));
             }
+            return list;
         }
 
         public override IEnumerable<PropertyDbModel> MapListT2toT1(IEnumerable<PropertyDto> value)
         {
+            IList<PropertyDbModel> list = new List<PropertyDbModel>();
             foreach (var property in value)
             {
-                yield return MapT2toT1(property);
+                list.Add(MapT2toT1(property));
             }
+            return list;
         }
 
         public override PropertyDto MapT1toT2(PropertyDbModel value)
