@@ -26,18 +26,22 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Parameters
 
         public override IEnumerable<MultimediaTypeDto> MapListT1toT2(IEnumerable<MultimediaTypeDbModel> value)
         {
-            foreach (var multimediaType in value)
+            IList<MultimediaTypeDto> list = new List<MultimediaTypeDto>();
+            foreach (var city in value)
             {
-                yield return MapT1toT2(multimediaType);
+                list.Add(MapT1toT2(city));
             }
+            return list;
         }
 
         public override IEnumerable<MultimediaTypeDbModel> MapListT2toT1(IEnumerable<MultimediaTypeDto> value)
         {
-            foreach (var multimediaType in value)
+            IList<MultimediaTypeDbModel> list = new List<MultimediaTypeDbModel>();
+            foreach (var city in value)
             {
-                yield return MapT2toT1(multimediaType);
-            }   
+                list.Add(MapT2toT1(city));
+            }
+            return list;
         }
     }
 }

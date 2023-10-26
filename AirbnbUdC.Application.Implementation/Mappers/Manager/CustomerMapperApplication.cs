@@ -1,4 +1,5 @@
 ﻿using AirbnbUdC.Application.Contracts.DTO.Manager;
+using AirbnbUdC.Application.Contracts.DTO.Parameters;
 using AirbnbUdC.Repository.Contracts.DbModel.Manager;
 using System.Collections.Generic;
 
@@ -8,18 +9,22 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Manager
     {
         public override IEnumerable<CustomerDto> MapListT1toT2(IEnumerable<CustomerDbModel> value)
         {
-            foreach (var Customer in value)
+            IList<CustomerDto> list = new List<CustomerDto>();
+            foreach (var customer in value)
             {
-                yield return MapT1toT2(Customer);
+                list.Add(MapT1toT2(customer));
             }
+            return list;
         }
 
         public override IEnumerable<CustomerDbModel> MapListT2toT1(IEnumerable<CustomerDto> value)
         {
-            foreach (var Customer in value)
+            IList<CustomerDbModel> list = new List<CustomerDbModel>();
+            foreach (var customer in value)
             {
-                yield return MapT2toT1(Customer);
+                list.Add(MapT2toT1(customer));
             }
+            return list;
         }
 
         public override CustomerDto MapT1toT2(CustomerDbModel value)

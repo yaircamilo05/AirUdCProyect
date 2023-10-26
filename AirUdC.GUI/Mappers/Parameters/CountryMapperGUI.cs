@@ -18,10 +18,12 @@ namespace AirUdC.GUI.Mappers.Parameters
 
         public override IEnumerable<CountryDto> MapListT2toT1(IEnumerable<CountryModel> value)
         {
+            IList<CountryDto> list = new List<CountryDto>();
             foreach (var country in value)
             {
-                yield return MapT2toT1(country);
+                list.Add(MapT2toT1(country));
             }
+            return list;
         }
 
         public override CountryModel MapT1toT2(CountryDto value)

@@ -12,18 +12,22 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Manager
         }
         public override IEnumerable<FeedbackDto> MapListT1toT2(IEnumerable<FeedbackDbModel> value)
         {
-            foreach (var Feedback in value)
+            IList<FeedbackDto> list = new List<FeedbackDto>();
+            foreach (var feedback in value)
             {
-                yield return MapT1toT2(Feedback);
+                list.Add(MapT1toT2(feedback));
             }
+            return list;
         }
 
         public override IEnumerable<FeedbackDbModel> MapListT2toT1(IEnumerable<FeedbackDto> value)
         {
-            foreach (var Feedback in value)
+            IList<FeedbackDbModel> list = new List<FeedbackDbModel>();
+            foreach (var feedback in value)
             {
-                yield return MapT2toT1(Feedback);
+                list.Add(MapT2toT1(feedback));
             }
+            return list;
         }
 
         public override FeedbackDto MapT1toT2(FeedbackDbModel value)
