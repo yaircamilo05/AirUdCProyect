@@ -22,11 +22,12 @@
                     <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Pais", "Index", "Country", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Ciudad", "Index", "City", new { area = "" }, new { @class = "nav-link" })</li>
+
                     @if (Request.IsAuthenticated)
                     {
-
+                        <li>@Html.ActionLink("Países", "Index", "Country", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Ciudades", "Index", "City", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Clientes", "Index", "Customer", new { area = "" }, new { @class = "nav-link" })</li>
                     }
 
                 </ul>

@@ -1,30 +1,40 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
-using AirUdC.GUI.Models;
+using AirbnbUdC.Application.Contracts.Contracts.Manager;
+using AirbnbUdC.Application.Implementation.Implementation.Manager;
+using AirUdC.GUI.Mappers.Manager;
 using AirUdC.GUI.Models.Manager;
 
 namespace AirUdC.GUI.Controllers.Manager
 {
     public class CustomerController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ICustomerApplication _app;
+        private readonly CustomerMapperGUI _customerMapper;
+
+        public CustomerController()
+        {
+            _app = new CustomerImplementationApplication();
+            _customerMapper = new CustomerMapperGUI();
+        }
 
         // GET: Customer
-        public ActionResult Index()
+        public ActionResult Index(string filter = "")
         {
-            return View(db.CustomerModels.ToList());
+            var records = _app.GetAllRecords(filter);
+            var mapped = _customerMapper.MapListT1toT2(records);
+            return View(mapped);
         }
 
         // GET: Customer/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
+            if (id <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CustomerModel customerModel = db.CustomerModels.Find(id);
+            var customer = _app.GetRecord(id);
+            CustomerModel customerModel = _customerMapper.MapT1toT2(customer);
             if (customerModel == null)
             {
                 return HttpNotFound();
@@ -47,8 +57,7 @@ namespace AirUdC.GUI.Controllers.Manager
         {
             if (ModelState.IsValid)
             {
-                db.CustomerModels.Add(customerModel);
-                db.SaveChanges();
+                _app.CreateRecord(_customerMapper.MapT2toT1(customerModel));
                 return RedirectToAction("Index");
             }
 
@@ -56,13 +65,13 @@ namespace AirUdC.GUI.Controllers.Manager
         }
 
         // GET: Customer/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            if (id <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CustomerModel customerModel = db.CustomerModels.Find(id);
+            CustomerModel customerModel = _customerMapper.MapT1toT2(_app.GetRecord(id));
             if (customerModel == null)
             {
                 return HttpNotFound();
@@ -79,21 +88,20 @@ namespace AirUdC.GUI.Controllers.Manager
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customerModel).State = EntityState.Modified;
-                db.SaveChanges();
+                _app.UpdateRecord(_customerMapper.MapT2toT1(customerModel));
                 return RedirectToAction("Index");
             }
             return View(customerModel);
         }
 
         // GET: Customer/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
+            if (id <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CustomerModel customerModel = db.CustomerModels.Find(id);
+            CustomerModel customerModel = _customerMapper.MapT1toT2(_app.GetRecord(id));
             if (customerModel == null)
             {
                 return HttpNotFound();
@@ -104,21 +112,10 @@ namespace AirUdC.GUI.Controllers.Manager
         // POST: Customer/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            CustomerModel customerModel = db.CustomerModels.Find(id);
-            db.CustomerModels.Remove(customerModel);
-            db.SaveChanges();
+            _app.DeleteRecord(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
