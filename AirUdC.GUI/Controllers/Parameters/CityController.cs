@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using System.Web.Mvc;
 using AirbnbUdC.Application.Contracts.Contracts.Parameters;
-using AirbnbUdC.Application.Implementation.Implementation.Parameters;
 using AirUdC.GUI.Mappers.Parameters;
 using AirUdC.GUI.Models.Parameters;
 
@@ -10,12 +9,16 @@ namespace AirUdC.GUI.Controllers.Parameters
     public class CityController : Controller
     {
         private readonly ICityApplication _app;
+        private readonly ICountryApplication _countryApp;
         private readonly CityMapperGUI _cityMapper;
+        private readonly CountryMapperGUI _countryMapper;
 
-        public CityController()
+        public CityController(ICityApplication app, ICountryApplication countryApp)
         {
-            _app = new CityImplementationApplication();
+            _app = app;
             _cityMapper = new CityMapperGUI();
+            _countryMapper = new CountryMapperGUI();
+            _countryApp = countryApp;
         }
         // GET: City
         public ActionResult Index(string filter = "")
@@ -44,7 +47,9 @@ namespace AirUdC.GUI.Controllers.Parameters
         // GET: City/Create
         public ActionResult Create()
         {
-            return View();
+            CityModel cityModel = new CityModel();
+            FillListForView(cityModel);
+            return View(cityModel);
         }
 
         // POST: City/Create
@@ -52,8 +57,9 @@ namespace AirUdC.GUI.Controllers.Parameters
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CityId,CityName")] CityModel cityModel)
+        public ActionResult Create(CityModel cityModel)
         {
+            ModelState.Remove("Country.CountryName");
             if (ModelState.IsValid)
             {
                 _app.CreateRecord(_cityMapper.MapT2toT1(cityModel));
@@ -61,6 +67,11 @@ namespace AirUdC.GUI.Controllers.Parameters
             }
 
             return View(cityModel);
+        }
+
+        private void FillListForView(CityModel city)
+        {
+            city.CountryList = _countryMapper.MapListT1toT2(_countryApp.GetAllRecords(string.Empty));
         }
 
         // GET: City/Edit/5

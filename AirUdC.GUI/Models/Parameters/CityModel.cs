@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using Utilities.Constants.MessagesConstants;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace AirUdC.GUI.Models.Parameters
 {
@@ -15,8 +17,9 @@ namespace AirUdC.GUI.Models.Parameters
         [StringLength(50, ErrorMessage = MessagesConstantsCity.stringLength, MinimumLength = 4)]
         public string CityName { get; set; }
 
-        [DisplayName("País")]
         [Required(ErrorMessage = MessagesConstantsCity.requiredCountry)]
         public CountryModel Country { get; set; }
+
+        public IEnumerable<CountryModel> CountryList { get; set; }
     }
 }

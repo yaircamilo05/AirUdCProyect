@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using System.Web.Mvc;
 using AirbnbUdC.Application.Contracts.Contracts.Parameters;
-using AirbnbUdC.Application.Implementation.Implementation.Parameters;
 using AirUdC.GUI.Mappers.Parameters;
 using AirUdC.GUI.Models.Parameters;
 
@@ -12,9 +11,9 @@ namespace AirUdC.GUI.Controllers.Parameters
         private readonly ICountryApplication _app;
         private readonly CountryMapperGUI _countryMapper;
 
-        public CountryController()
+        public CountryController(ICountryApplication app)
         {
-            _app = new CountryImplementationApplication();
+            _app = app;
             _countryMapper = new CountryMapperGUI();
         }
         // GET: Country
