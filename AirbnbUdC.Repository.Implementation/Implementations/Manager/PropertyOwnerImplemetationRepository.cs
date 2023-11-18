@@ -31,7 +31,7 @@ namespace AirbnbUdC.Repository.Implementation.Implementations.Manager
                 {
                     var propertyOwner = this._mapper.MapT2toT1(record);
                     var propertyOwnerDb = db.PropertyOwner.Add(propertyOwner);
-                    db.SaveChangesAsync();
+                    db.SaveChanges();
                     var response = this._mapper.MapT1toT2(propertyOwnerDb);
                     return response;
                 }
