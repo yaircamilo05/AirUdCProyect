@@ -207,6 +207,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Manager\CustomerController.cs" />
+    <Compile Include="Controllers\Manager\FeedbacksController.cs" />
+    <Compile Include="Controllers\Manager\PropertyMultimediaController.cs" />
     <Compile Include="Controllers\Manager\PropertyOwnerController.cs" />
     <Compile Include="Controllers\Parameters\CityController.cs" />
     <Compile Include="Controllers\Parameters\CountryController.cs" />
@@ -214,6 +216,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mappers\Manager\CustomerMapperGUI.cs" />
+    <Compile Include="Mappers\Manager\FeedbackMapperGUI.cs" />
+    <Compile Include="Mappers\Manager\PropertyMultimediaMapperGUI.cs" />
     <Compile Include="Mappers\Manager\PropertyOwnerMapperGUI.cs" />
     <Compile Include="Mappers\MapperBaseGUI.cs" />
     <Compile Include="Mappers\Parameters\CityMapperGUI.cs" />
@@ -324,6 +328,16 @@
     <Content Include="Views\PropertyOwner\Details.cshtml" />
     <Content Include="Views\PropertyOwner\Edit.cshtml" />
     <Content Include="Views\PropertyOwner\Index.cshtml" />
+    <Content Include="Views\Feedbacks\Create.cshtml" />
+    <Content Include="Views\Feedbacks\Delete.cshtml" />
+    <Content Include="Views\Feedbacks\Details.cshtml" />
+    <Content Include="Views\Feedbacks\Edit.cshtml" />
+    <Content Include="Views\Feedbacks\Index.cshtml" />
+    <Content Include="Views\PropertyMultimedia\Create.cshtml" />
+    <Content Include="Views\PropertyMultimedia\Delete.cshtml" />
+    <Content Include="Views\PropertyMultimedia\Details.cshtml" />
+    <Content Include="Views\PropertyMultimedia\Edit.cshtml" />
+    <Content Include="Views\PropertyMultimedia\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

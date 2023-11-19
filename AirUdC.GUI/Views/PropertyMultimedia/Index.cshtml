@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AirbnbUdC.Repository.Implementation.DataModel.PropertyMultimedia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MultimediaType.MultimediaTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Property.PropertyAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MultimediaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MultimediaLink)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MultimediaType.MultimediaTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Property.PropertyAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MultimediaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MultimediaLink)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

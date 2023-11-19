@@ -1,0 +1,58 @@
+﻿@model AirbnbUdC.Repository.Implementation.DataModel.Feedback
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Feedback</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Reservation.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reservation.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RateForOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RateForOwner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentsForOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommentsForOwner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RateForCustomer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RateForCustomer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentsForCustomer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommentsForCustomer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
