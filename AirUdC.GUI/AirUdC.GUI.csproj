@@ -176,6 +176,7 @@
     <Compile Include="Controllers\Manager\PropertyOwnerController.cs" />
     <Compile Include="Controllers\Parameters\CityController.cs" />
     <Compile Include="Controllers\Parameters\CountryController.cs" />
+    <Compile Include="Controllers\Parameters\MultimediaTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,6 +185,7 @@
     <Compile Include="Mappers\MapperBaseGUI.cs" />
     <Compile Include="Mappers\Parameters\CityMapperGUI.cs" />
     <Compile Include="Mappers\Parameters\CountryMapperGUI.cs" />
+    <Compile Include="Mappers\Parameters\MultimediaTypeMapperGUI.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Manager\CustomerModel.cs" />
@@ -290,6 +292,11 @@
     <Content Include="Views\PropertyOwner\Details.cshtml" />
     <Content Include="Views\PropertyOwner\Edit.cshtml" />
     <Content Include="Views\PropertyOwner\Index.cshtml" />
+    <Content Include="Views\MultimediaType\Create.cshtml" />
+    <Content Include="Views\MultimediaType\Delete.cshtml" />
+    <Content Include="Views\MultimediaType\Details.cshtml" />
+    <Content Include="Views\MultimediaType\Edit.cshtml" />
+    <Content Include="Views\MultimediaType\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

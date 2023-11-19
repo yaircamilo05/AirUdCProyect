@@ -38,5 +38,7 @@ namespace AirUdC.GUI.Models
         public System.Data.Entity.DbSet<AirUdC.GUI.Models.Manager.CustomerModel> CustomerModels { get; set; }
 
         public System.Data.Entity.DbSet<AirUdC.GUI.Models.Manager.PropertyOwnerModel> PropertyOwnerModels { get; set; }
+
+        public System.Data.Entity.DbSet<AirUdC.GUI.Models.Parameters.MultimediaTypeModel> MultimediaTypeModels { get; set; }
     }
 }
