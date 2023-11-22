@@ -46,12 +46,46 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=6.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.6.4.0\lib\netstandard2.0\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=6.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.6.1.0\lib\net472\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc.Owin, Version=6.1.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.Owin.6.1.0\lib\net472\Autofac.Integration.Mvc.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin, Version=7.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Owin.7.0.0\lib\net472\Autofac.Integration.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -173,6 +207,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Manager\CustomerController.cs" />
+    <Compile Include="Controllers\Manager\FeedbacksController.cs" />
+    <Compile Include="Controllers\Manager\PropertyMultimediaController.cs" />
     <Compile Include="Controllers\Manager\PropertyOwnerController.cs" />
     <Compile Include="Controllers\Parameters\CityController.cs" />
     <Compile Include="Controllers\Parameters\CountryController.cs" />
@@ -181,6 +217,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mappers\Manager\CustomerMapperGUI.cs" />
+    <Compile Include="Mappers\Manager\FeedbackMapperGUI.cs" />
+    <Compile Include="Mappers\Manager\PropertyMultimediaMapperGUI.cs" />
     <Compile Include="Mappers\Manager\PropertyOwnerMapperGUI.cs" />
     <Compile Include="Mappers\MapperBaseGUI.cs" />
     <Compile Include="Mappers\Parameters\CityMapperGUI.cs" />
@@ -292,11 +330,16 @@
     <Content Include="Views\PropertyOwner\Details.cshtml" />
     <Content Include="Views\PropertyOwner\Edit.cshtml" />
     <Content Include="Views\PropertyOwner\Index.cshtml" />
-    <Content Include="Views\MultimediaType\Create.cshtml" />
-    <Content Include="Views\MultimediaType\Delete.cshtml" />
-    <Content Include="Views\MultimediaType\Details.cshtml" />
-    <Content Include="Views\MultimediaType\Edit.cshtml" />
-    <Content Include="Views\MultimediaType\Index.cshtml" />
+    <Content Include="Views\Feedbacks\Create.cshtml" />
+    <Content Include="Views\Feedbacks\Delete.cshtml" />
+    <Content Include="Views\Feedbacks\Details.cshtml" />
+    <Content Include="Views\Feedbacks\Edit.cshtml" />
+    <Content Include="Views\Feedbacks\Index.cshtml" />
+    <Content Include="Views\PropertyMultimedia\Create.cshtml" />
+    <Content Include="Views\PropertyMultimedia\Delete.cshtml" />
+    <Content Include="Views\PropertyMultimedia\Details.cshtml" />
+    <Content Include="Views\PropertyMultimedia\Edit.cshtml" />
+    <Content Include="Views\PropertyMultimedia\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -340,6 +383,14 @@
     <ProjectReference Include="..\AirbnbUdC.Application.Implementation\AirbnbUdC.Application.Implementation.csproj">
       <Project>{B6CFBB04-44C6-473F-88DC-6809F7AAA865}</Project>
       <Name>AirbnbUdC.Application.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AirbnbUdC.Repository.Contracts\AirbnbUdC.Repository.Contracts.csproj">
+      <Project>{1F80C2B6-A34A-4AF6-A5A0-366F766E00C1}</Project>
+      <Name>AirbnbUdC.Repository.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AirbnbUdC.Repository.Implementation\AirbnbUdC.Repository.Implementation.csproj">
+      <Project>{32A2A43A-6B1D-4CB2-9D4F-99D58902393D}</Project>
+      <Name>AirbnbUdC.Repository.Implementation</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{34067203-B94A-49A8-B278-5669ADAE2A0A}</Project>

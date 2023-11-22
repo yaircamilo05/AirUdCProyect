@@ -1,0 +1,56 @@
+﻿@model AirbnbUdC.Repository.Implementation.DataModel.PropertyMultimedia
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PropertyMultimedia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MultimediaType.MultimediaTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MultimediaType.MultimediaTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Property.PropertyAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Property.PropertyAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MultimediaName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MultimediaName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MultimediaLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MultimediaLink)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

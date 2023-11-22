@@ -42,7 +42,7 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.parameters
             {
                 Id = value.CityId,
                 CityName = value.CityName,
-                Country = new CountryMapperRepository().MapT2toT1(value.Country)
+                CountryId = value.Country.CountryId,
             };
         }
     }

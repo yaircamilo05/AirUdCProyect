@@ -14,9 +14,9 @@ namespace AirbnbUdC.Application.Implementation.Implementation.Parameters
 
         private readonly ICountryRepository _countryRepository;
 
-        public CountryImplementationApplication()
+        public CountryImplementationApplication(ICountryRepository countryRepository)
         {
-            this._countryRepository = new CountryImplementationRepository();
+            _countryRepository = countryRepository;
         }
 
         /// <summary>

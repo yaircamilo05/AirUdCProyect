@@ -3,19 +3,18 @@ using AirbnbUdC.Application.Contracts.DTO.Parameters;
 using AirbnbUdC.Application.Implementation.Mappers.Parameters;
 using AirbnbUdC.Repository.Contracts.Contrats.Parameters;
 using AirbnbUdC.Repository.Contracts.DbModel.Parameters;
-using AirbnbUdC.Repository.Implementation.Implementations.Parameters;
 using System.Collections.Generic;
 
 namespace AirbnbUdC.Application.Implementation.Implementation.Parameters
 {
-        public class CityImplementationApplication : ICityApplication
+    public class CityImplementationApplication : ICityApplication
         {
 
             private readonly ICityRepository _cityRepository;
 
-            public CityImplementationApplication()
+            public CityImplementationApplication(ICityRepository cityRepository)
             {
-                this._cityRepository = new CityImplementationRepository();
+                 _cityRepository = cityRepository;
             }
             
             /// <summary>
