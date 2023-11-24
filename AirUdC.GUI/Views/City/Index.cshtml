@@ -6,6 +6,13 @@
 
 <h2>Index</h2>
 
+<br />
+
+<a class="btn btn-success" target="_blank" href="~/City/CityByCountryReport?Format=PDF" >
+    Generar reporte
+    <i class="fas fa-print"> </i>
+</a>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -13,6 +20,9 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.CityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country.CountryName)
         </th>
         <th></th>
     </tr>
@@ -22,6 +32,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.CityName)
         </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Country.CountryName)
+        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CityId }) |
             @Html.ActionLink("Details", "Details", new { id=item.CityId }) |

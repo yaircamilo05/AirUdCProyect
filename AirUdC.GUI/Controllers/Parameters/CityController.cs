@@ -1,8 +1,11 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.Net;
 using System.Web.Mvc;
 using AirbnbUdC.Application.Contracts.Contracts.Parameters;
 using AirUdC.GUI.Mappers.Parameters;
 using AirUdC.GUI.Models.Parameters;
+using AirUdC.GUI.Models.ReportModels;
+using Microsoft.Reporting.WebForms;
 
 namespace AirUdC.GUI.Controllers.Parameters
 {
@@ -126,6 +129,53 @@ namespace AirUdC.GUI.Controllers.Parameters
         {
             _app.DeleteRecord(id);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CityByCountryReport(string format="PDF")
+        {
+            var records = _app.GetAllRecords(string.Empty);
+
+            List<CitiesByCountryReportModel> reportModels = new List<CitiesByCountryReportModel>();
+
+            foreach (var item in records)
+            {
+                reportModels.Add(new CitiesByCountryReportModel
+                {
+                    Id = item.CityId.ToString(),
+                    Name = item.CityName,
+                    CountryId = item.Country.CountryId.ToString(),
+                    CountryName = item.Country.CountryName
+                });
+            }
+
+
+
+            string reportPath = Server.MapPath("~/Reports/RdlcFiles/CitiesByCountryReport.rdlc");
+            LocalReport lr = new LocalReport();
+
+            //variables para renderizar el reporte
+
+            Warning[] warnings;
+            string[] streams;
+            byte[] renderedBytes;
+            string mimeType, encoding, fileNameExtension;
+
+            lr.ReportPath = reportPath;
+            //debe ser el mismo nombre que el dataset del reporte .rdlc
+            ReportDataSource rd = new ReportDataSource("CitiesByCountryDataSet", reportModels);
+            lr.DataSources.Add(rd);
+
+            renderedBytes = lr.Render(
+            format,
+            string.Empty,
+            out mimeType,
+            out encoding,
+            out fileNameExtension,
+            out streams,
+            out warnings
+            );
+
+            return File(renderedBytes, mimeType);
         }
     }
 }
