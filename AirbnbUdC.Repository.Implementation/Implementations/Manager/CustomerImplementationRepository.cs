@@ -29,7 +29,7 @@ namespace AirbnbUdC.Repository.Implementation.Implementations.Manager
                 {
                     var Customer = this._mapper.MapT2toT1(record);
                     var CustomerDb = db.Customer.Add(Customer);
-                    db.SaveChangesAsync();
+                    db.SaveChanges();
                     var response = this._mapper.MapT1toT2(CustomerDb);
                     return response;
                 }

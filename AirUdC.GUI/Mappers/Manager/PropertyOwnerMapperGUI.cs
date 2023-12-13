@@ -11,22 +11,48 @@ namespace AirUdC.GUI.Mappers.Manager
     {
         public override IEnumerable<PropertyOwnerModel> MapListT1toT2(IEnumerable<PropertyOwnerDto> value)
         {
-            throw new NotImplementedException();
+            IList<PropertyOwnerModel> list = new List<PropertyOwnerModel>();
+            foreach (var propertyOwner in value)
+            {
+                list.Add(MapT1toT2(propertyOwner));
+            }
+            return list;
         }
 
         public override IEnumerable<PropertyOwnerDto> MapListT2toT1(IEnumerable<PropertyOwnerModel> value)
         {
-            throw new NotImplementedException();
+            IList<PropertyOwnerDto> list = new List<PropertyOwnerDto>();
+            foreach (var propertyOwner in value)
+            {
+                list.Add(MapT2toT1(propertyOwner));
+            }
+            return list;
         }
 
         public override PropertyOwnerModel MapT1toT2(PropertyOwnerDto value)
         {
-            throw new NotImplementedException();
+            return new PropertyOwnerModel()
+            {
+                PropertyOwnerId = value.PropertyOwnerId,
+                FirstName = value.FirstName,
+                FamilyName = value.FamilyName,
+                Email = value.Email,
+                Cellphone = value.Cellphone,
+                Photo = value.Photo
+            };  
         }
 
         public override PropertyOwnerDto MapT2toT1(PropertyOwnerModel value)
         {
-            throw new NotImplementedException();
+            return new PropertyOwnerDto()
+            {
+                PropertyOwnerId = value.PropertyOwnerId,
+                FirstName = value.FirstName,
+                FamilyName = value.FamilyName,
+                Email = value.Email,
+                Cellphone = value.Cellphone,
+                Photo = value.Photo
+            };
         }
     }
 }
