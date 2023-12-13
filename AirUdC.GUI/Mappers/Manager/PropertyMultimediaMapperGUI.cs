@@ -50,5 +50,4 @@ namespace AirUdC.GUI.Mappers.Manager
             };
         }
     }
-
 }
