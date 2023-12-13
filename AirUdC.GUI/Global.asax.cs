@@ -22,6 +22,22 @@ namespace AirUdC.GUI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //configuracion de la inyeccion de dependencias
+            var builder = new ContainerBuilder();
+
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            builder.RegisterType<CountryImplementationApplication>().As<ICountryApplication>();
+            builder.RegisterType<CityImplementationApplication>().As<ICityApplication>();
+            builder.RegisterType<CountryImplementationApplication>().As<ICountryApplication>();
+
+            builder.RegisterType<CountryImplementationRepository>().As<ICountryRepository>();
+            builder.RegisterType<CityImplementationRepository>().As<ICityRepository>();
+
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
+
         }
     }
 }

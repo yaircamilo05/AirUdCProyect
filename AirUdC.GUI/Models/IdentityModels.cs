@@ -38,5 +38,15 @@ namespace AirUdC.GUI.Models
         public System.Data.Entity.DbSet<AirUdC.GUI.Models.Manager.CustomerModel> CustomerModels { get; set; }
 
         public System.Data.Entity.DbSet<AirUdC.GUI.Models.Manager.PropertyOwnerModel> PropertyOwnerModels { get; set; }
+
+        public System.Data.Entity.DbSet<AirbnbUdC.Repository.Implementation.DataModel.Feedback> Feedbacks { get; set; }
+
+        public System.Data.Entity.DbSet<AirbnbUdC.Repository.Implementation.DataModel.Reservation> Reservations { get; set; }
+
+        public System.Data.Entity.DbSet<AirbnbUdC.Repository.Implementation.DataModel.PropertyMultimedia> PropertyMultimedias { get; set; }
+
+        public System.Data.Entity.DbSet<AirbnbUdC.Repository.Implementation.DataModel.MultimediaType> MultimediaTypes { get; set; }
+
+        public System.Data.Entity.DbSet<AirbnbUdC.Repository.Implementation.DataModel.Property> Properties { get; set; }
     }
 }

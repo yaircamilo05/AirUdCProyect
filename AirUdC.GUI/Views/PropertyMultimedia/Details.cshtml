@@ -1,0 +1,50 @@
+﻿@model AirbnbUdC.Repository.Implementation.DataModel.PropertyMultimedia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PropertyMultimedia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MultimediaType.MultimediaTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MultimediaType.MultimediaTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Property.PropertyAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Property.PropertyAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MultimediaName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MultimediaName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MultimediaLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MultimediaLink)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

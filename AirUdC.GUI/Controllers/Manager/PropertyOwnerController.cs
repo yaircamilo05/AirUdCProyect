@@ -4,7 +4,7 @@ using System.Net;
 using System.Web.Mvc;
 using AirbnbUdC.Application.Contracts.Contracts.Manager;
 using AirbnbUdC.Application.Implementation.Implementation.Manager;
-using AirUdC.GUI.Mappers.Parameters;
+using AirUdC.GUI.Mappers.Manager;
 using AirUdC.GUI.Models;
 using AirUdC.GUI.Models.Manager;
 
@@ -12,27 +12,33 @@ namespace AirUdC.GUI.Controllers.Manager
 {
     public class PropertyOwnerController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly IPropertyOwnerApplication _app;
+        private readonly PropertyOwnerMapperGUI _propertyOwnerMapper;
 
         public PropertyOwnerController()
         {
+            _app = new PropertyOwnerImplementationApplication();
+            _propertyOwnerMapper = new PropertyOwnerMapperGUI();
 
         }
 
         // GET: PropertyOwner
-        public ActionResult Index()
+        public ActionResult Index(string filter="")
         {
-            return View(db.PropertyOwnerModels.ToList());
+            var records = _app.GetAllRecords(filter);
+            var mapped = _propertyOwnerMapper.MapListT1toT2(records);
+            return View(mapped);
         }
 
         // GET: PropertyOwner/Details/5
-        public ActionResult Details(long? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
+            if (id <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PropertyOwnerModel propertyOwnerModel = db.PropertyOwnerModels.Find(id);
+            var propertyOwner = _app.GetRecord(id);
+             PropertyOwnerModel propertyOwnerModel = _propertyOwnerMapper.MapT1toT2(propertyOwner);
             if (propertyOwnerModel == null)
             {
                 return HttpNotFound();
@@ -55,8 +61,7 @@ namespace AirUdC.GUI.Controllers.Manager
         {
             if (ModelState.IsValid)
             {
-                db.PropertyOwnerModels.Add(propertyOwnerModel);
-                db.SaveChanges();
+                _app.CreateRecord(_propertyOwnerMapper.MapT2toT1(propertyOwnerModel));
                 return RedirectToAction("Index");
             }
 
@@ -64,13 +69,13 @@ namespace AirUdC.GUI.Controllers.Manager
         }
 
         // GET: PropertyOwner/Edit/5
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            if (id <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PropertyOwnerModel propertyOwnerModel = db.PropertyOwnerModels.Find(id);
+            PropertyOwnerModel propertyOwnerModel = _propertyOwnerMapper.MapT1toT2(_app.GetRecord(id));
             if (propertyOwnerModel == null)
             {
                 return HttpNotFound();
@@ -87,21 +92,20 @@ namespace AirUdC.GUI.Controllers.Manager
         {
             if (ModelState.IsValid)
             {
-                db.Entry(propertyOwnerModel).State = EntityState.Modified;
-                db.SaveChanges();
+                _app.UpdateRecord(_propertyOwnerMapper.MapT2toT1(propertyOwnerModel));
                 return RedirectToAction("Index");
             }
             return View(propertyOwnerModel);
         }
 
         // GET: PropertyOwner/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
+            if (id <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PropertyOwnerModel propertyOwnerModel = db.PropertyOwnerModels.Find(id);
+            PropertyOwnerModel propertyOwnerModel = _propertyOwnerMapper.MapT1toT2(_app.GetRecord(id));
             if (propertyOwnerModel == null)
             {
                 return HttpNotFound();
@@ -112,21 +116,11 @@ namespace AirUdC.GUI.Controllers.Manager
         // POST: PropertyOwner/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(long id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            PropertyOwnerModel propertyOwnerModel = db.PropertyOwnerModels.Find(id);
-            db.PropertyOwnerModels.Remove(propertyOwnerModel);
-            db.SaveChanges();
+            _app.DeleteRecord(id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

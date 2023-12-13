@@ -17,7 +17,7 @@ namespace AirUdC.GUI.Models.Manager
 
         [DisplayName("Fecha de salida")]
         public string OutDate { get; set; }
-      //  public PropertyModel property { get; set; }
-      //  public CustumerModel custumer { get; set; }
+        public PropertyModel property { get; set; }
+        public CustomerModel customer { get; set; }
     }
 }
