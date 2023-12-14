@@ -37,6 +37,7 @@ namespace AirbnbUdC.Repository.Implementation.DataModel
         public bool LaundryService { get; set; }
     
         public virtual City City { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual PropertyOwner PropertyOwner { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PropertyMultimedia> PropertyMultimedia { get; set; }

@@ -1,119 +1,114 @@
-﻿using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using AirbnbUdC.Application.Contracts.Contracts.Manager;
-using AirbnbUdC.Application.Implementation.Implementation.Manager;
 using AirUdC.GUI.Mappers.Manager;
-using AirUdC.GUI.Models;
 using AirUdC.GUI.Models.Manager;
 
 namespace AirUdC.GUI.Controllers.Manager
 {
-    public class PropertyOwnerController : Controller
+    public class FeedbackController : Controller
     {
-        private readonly IPropertyOwnerApplication _app;
-        private readonly PropertyOwnerMapperGUI _propertyOwnerMapper;
+        private readonly IFeedbackApplication _app;
+        private readonly FeedbackMapperGUI _feedbackMapper;
 
-        public PropertyOwnerController(IPropertyOwnerApplication app )
+
+        public FeedbackController(IFeedbackApplication app)
         {
             _app = app;
-            _propertyOwnerMapper = new PropertyOwnerMapperGUI();
-
+            _feedbackMapper = new FeedbackMapperGUI();
         }
-
-        // GET: PropertyOwner
-        public ActionResult Index(string filter="")
+        // GET: Feedbacks
+        public ActionResult Index()
         {
-            var records = _app.GetAllRecords(filter);
-            var mapped = _propertyOwnerMapper.MapListT1toT2(records);
+            var records = _app.GetAllRecords();
+            var mapped = _feedbackMapper.MapListT1toT2(records);
             return View(mapped);
         }
 
-        // GET: PropertyOwner/Details/5
+        // GET: Feedbacks/Details/5
         public ActionResult Details(int id)
         {
             if (id <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var propertyOwner = _app.GetRecord(id);
-             PropertyOwnerModel propertyOwnerModel = _propertyOwnerMapper.MapT1toT2(propertyOwner);
-            if (propertyOwnerModel == null)
+            var feedback = _app.GetRecord(id);
+            FeedbackModel feedbackModel = _feedbackMapper.MapT1toT2(feedback);
+            if (feedbackModel == null)
             {
                 return HttpNotFound();
             }
-            return View(propertyOwnerModel);
+            return View(feedbackModel);
         }
 
-        // GET: PropertyOwner/Create
+        // GET: Feedbacks/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: PropertyOwner/Create
+        // POST: Feedbacks/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PropertyOwnerId,FirstName,FamilyName,Email,Cellphone,Photo")] PropertyOwnerModel propertyOwnerModel)
+        public ActionResult Create([Bind(Include = "Id,RateForOwner,CommentsForOwner,RateForCustomer,CommentsForCustomer,ReservationId")] FeedbackModel feedback)
         {
             if (ModelState.IsValid)
             {
-                _app.CreateRecord(_propertyOwnerMapper.MapT2toT1(propertyOwnerModel));
+                _app.CreateRecord(_feedbackMapper.MapT2toT1(feedback));
                 return RedirectToAction("Index");
             }
 
-            return View(propertyOwnerModel);
+            return View(feedback);
         }
 
-        // GET: PropertyOwner/Edit/5
+        // GET: Feedbacks/Edit/5
         public ActionResult Edit(int id)
         {
             if (id <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PropertyOwnerModel propertyOwnerModel = _propertyOwnerMapper.MapT1toT2(_app.GetRecord(id));
-            if (propertyOwnerModel == null)
+            FeedbackModel feedbackModel = _feedbackMapper.MapT1toT2(_app.GetRecord(id));
+            if (feedbackModel == null)
             {
                 return HttpNotFound();
             }
-            return View(propertyOwnerModel);
+            return View(feedbackModel);
         }
 
-        // POST: PropertyOwner/Edit/5
+        // POST: Feedbacks/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PropertyOwnerId,FirstName,FamilyName,Email,Cellphone,Photo")] PropertyOwnerModel propertyOwnerModel)
+        public ActionResult Edit([Bind(Include = "Id,RateForOwner,CommentsForOwner,RateForCustomer,CommentsForCustomer,ReservationId")] FeedbackModel feedback)
         {
             if (ModelState.IsValid)
             {
-                _app.UpdateRecord(_propertyOwnerMapper.MapT2toT1(propertyOwnerModel));
+                _app.UpdateRecord(_feedbackMapper.MapT2toT1(feedback));
                 return RedirectToAction("Index");
             }
-            return View(propertyOwnerModel);
+            return View(feedback);
         }
 
-        // GET: PropertyOwner/Delete/5
+        // GET: Feedbacks/Delete/5
         public ActionResult Delete(int id)
         {
             if (id <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PropertyOwnerModel propertyOwnerModel = _propertyOwnerMapper.MapT1toT2(_app.GetRecord(id));
-            if (propertyOwnerModel == null)
+            FeedbackModel feedbackModel = _feedbackMapper.MapT1toT2(_app.GetRecord(id));
+            if (feedbackModel == null)
             {
                 return HttpNotFound();
             }
-            return View(propertyOwnerModel);
+            return View(feedbackModel);
         }
 
-        // POST: PropertyOwner/Delete/5
+        // POST: Feedbacks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -121,6 +116,5 @@ namespace AirUdC.GUI.Controllers.Manager
             _app.DeleteRecord(id);
             return RedirectToAction("Index");
         }
-
     }
 }

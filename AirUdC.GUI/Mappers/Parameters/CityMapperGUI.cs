@@ -42,6 +42,10 @@ namespace AirUdC.GUI.Mappers.Parameters
 
         public override CityDto MapT2toT1(CityModel value)
         {
+           if (value == null)
+            {
+               return new CityDto();
+           }
            return new CityDto
            {
                CityId = value.CityId,

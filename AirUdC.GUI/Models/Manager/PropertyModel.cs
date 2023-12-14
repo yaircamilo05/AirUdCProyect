@@ -1,5 +1,5 @@
-﻿using AirbnbUdC.Application.Contracts.DTO.Manager;
-using AirbnbUdC.Application.Contracts.DTO.Parameters;
+﻿using AirUdC.GUI.Models.Parameters;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace AirUdC.GUI.Models.Manager
@@ -10,8 +10,8 @@ namespace AirUdC.GUI.Models.Manager
         [Display(Name = "Id de la propiedad")]
         public long PropertyId { get; set; }
         public string PropertyAddress { get; set; }
-        public CityDto city { get; set; }
-        public PropertyOwnerDto PropertyOwner { get; set; }
+        public CityModel city { get; set; }
+        public PropertyOwnerModel PropertyOwner { get; set; }
         public int CustomerAmount { get; set; }
         public decimal Price { get; set; }
         public string Latitude { get; set; }
@@ -22,5 +22,8 @@ namespace AirUdC.GUI.Models.Manager
         public bool Pets { get; set; }
         public bool Freezer { get; set; }
         public bool LaundryService { get; set; }
+
+        public IEnumerable<PropertyOwnerModel> PropertyOwnerList { get; set; }
+        public IEnumerable<CityModel> CityList { get; set; }
     }
 }

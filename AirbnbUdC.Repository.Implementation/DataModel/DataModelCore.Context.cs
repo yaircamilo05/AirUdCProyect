@@ -12,7 +12,7 @@ namespace AirbnbUdC.Repository.Implementation.DataModel
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class Core_DBEntities : DbContext
     {
         public Core_DBEntities()
@@ -34,5 +34,6 @@ namespace AirbnbUdC.Repository.Implementation.DataModel
         public virtual DbSet<PropertyMultimedia> PropertyMultimedia { get; set; }
         public virtual DbSet<PropertyOwner> PropertyOwner { get; set; }
         public virtual DbSet<Reservation> Reservation { get; set; }
+
     }
 }
