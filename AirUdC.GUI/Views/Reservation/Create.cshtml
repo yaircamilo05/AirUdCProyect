@@ -42,7 +42,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Customer, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Customer.CustomerId, new SelectList(Model.customers, "CustomerId", "FirstName"), new { @class = "form-control selectpicker border", @id = "selRegion", @data_live_search = "true" })
+            @Html.DropDownListFor(model => model.Customer.CustomerId, new SelectList(Model.customers, "CustomerId", "FullName"), new { @class = "form-control selectpicker border", @id = "selRegion", @data_live_search = "true" })
             @Html.ValidationMessageFor(model => model.Customer.CustomerId, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -50,7 +50,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.property, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.property.PropertyId, new SelectList(Model.properties, "PropertyId", "PropertyAddress"), new { @class = "form-control selectpicker border", @id = "selRegion", @data_live_search = "true" })
+            @Html.DropDownListFor(model => model.property.PropertyId, new SelectList(Model.properties, "PropertyId", "CompleteDirection"), new { @class = "form-control selectpicker border", @id = "selRegion", @data_live_search = "true" })
             @Html.ValidationMessageFor(model => model.property.PropertyId, "", new { @class = "text-danger" })
         </div>
     </div>

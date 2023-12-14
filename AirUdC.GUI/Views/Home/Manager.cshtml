@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "View";
+}
+
+<div class="text-center mt-4 mb-3">
+    <h1 class="h3">Manager</h1>
+</div>
+
+<ul class="list-group text-center" style="max-width: 300px; margin: 0 auto;">
+    <li class="list-group-item">
+        @Html.ActionLink("Países", "Index", "Country", new { area = "" }, new { @class = "nav-link" })
+    </li>
+    <li class="list-group-item">
+        @Html.ActionLink("Ciudades", "Index", "City", new { area = "" }, new { @class = "nav-link" })
+    </li>
+    <li class="list-group-item">
+        @Html.ActionLink("Tipo de multimedia", "Index", "MultimediaType", new { area = "" }, new { @class = "nav-link" })
+    </li>
+</ul>
+
+
+

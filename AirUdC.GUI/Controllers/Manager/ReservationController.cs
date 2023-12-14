@@ -151,6 +151,15 @@ namespace AirUdC.GUI.Controllers.Manager
         {
             reservationModel.customers = _customerMapper.MapListT1toT2(_appCustomer.GetAllRecords(""));
             reservationModel.properties = _propertyMapper.MapListT1toT2(_appProperty.GetAllRecords(""));
+            foreach (var item in reservationModel.customers)
+            {
+                item.FullName = item.FirstName + " " + item.FamilyName;
+            }
+
+            foreach (var item in reservationModel.properties)
+            {
+                item.CompleteDirection = item.PropertyAddress + " / " + item.city.CityName;
+            }
         }
     }
 }

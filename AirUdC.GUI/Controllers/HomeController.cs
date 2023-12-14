@@ -26,5 +26,17 @@ namespace AirUdC.GUI.Controllers
 
             return View();
         }
+
+        public ActionResult Manager() {
+
+            ViewBag.Message = "hola";
+            return View();
+        }
+
+        public ActionResult Parameters()
+        {
+            ViewBag.Message = "hola";
+            return View();
+        }
     }
 }

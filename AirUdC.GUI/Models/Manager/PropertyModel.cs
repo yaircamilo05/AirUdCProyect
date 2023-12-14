@@ -45,5 +45,7 @@ namespace AirUdC.GUI.Models.Manager
 
         public IEnumerable<PropertyOwnerModel> PropertyOwnerList { get; set; }
         public IEnumerable<CityModel> CityList { get; set; }
+
+        public string CompleteDirection { get; set; }
     }
 }

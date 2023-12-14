@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Parameters";
+}
+
+<div class="text-center mt-4 mb-3">
+    <h1 class="h3">Parametros</h1>
+</div>
+
+<ul class="list-group text-center" style="max-width: 300px; margin: 0 auto;">
+    <li class="list-group-item">
+        @Html.ActionLink("Propietarios", "Index", "PropertyOwner", new { area = "" }, new { @class = "nav-link" })
+    </li>
+    <li class="list-group-item">
+        @Html.ActionLink("Propiedades", "Index", "Property", new { area = "" }, new { @class = "nav-link" })
+    </li>
+    <li class="list-group-item">
+        @Html.ActionLink("Comentarios y calificación", "Index", "Feedback", new { area = "" }, new { @class = "nav-link" })
+    </li>
+    <li class="list-group-item">
+        @Html.ActionLink("Reservaciones", "Index", "Reservation", new { area = "" }, new { @class = "nav-link" })
+    </li>
+    <li class="list-group-item">
+        @Html.ActionLink("Clientes", "Index", "Customer", new { area = "" }, new { @class = "nav-link" })
+    </li>
+</ul>
+
