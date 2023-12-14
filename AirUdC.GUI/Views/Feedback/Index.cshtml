@@ -9,49 +9,54 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RateForOwner)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CommentsForOwner)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RateForCustomer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CommentsForCustomer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Reservation)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RateForOwner)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CommentsForOwner)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RateForCustomer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CommentsForCustomer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Reservation)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FeedbackId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FeedbackId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FeedbackId })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RateForOwner)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommentsForOwner)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RateForCustomer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommentsForCustomer)
+                </th>
+                <th>
+                    Reservation ID
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RateForOwner)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommentsForOwner)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RateForCustomer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommentsForCustomer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Reservation.ReservationId)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.FeedbackId }, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.FeedbackId }, new { @class = "btn btn-info" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.FeedbackId }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

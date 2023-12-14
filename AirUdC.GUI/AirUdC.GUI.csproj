@@ -397,6 +397,11 @@
     <Content Include="Views\Property\Details.cshtml" />
     <Content Include="Views\Property\Edit.cshtml" />
     <Content Include="Views\Property\Index.cshtml" />
+    <Content Include="Views\MultimediaType\Create.cshtml" />
+    <Content Include="Views\MultimediaType\Delete.cshtml" />
+    <Content Include="Views\MultimediaType\Details.cshtml" />
+    <Content Include="Views\MultimediaType\Edit.cshtml" />
+    <Content Include="Views\MultimediaType\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

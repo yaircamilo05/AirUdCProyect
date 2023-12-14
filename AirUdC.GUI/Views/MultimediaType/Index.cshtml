@@ -1,33 +1,42 @@
 ﻿@model IEnumerable<AirUdC.GUI.Models.Parameters.MultimediaTypeModel>
 
-@{
+    @{
     ViewBag.Title = "Index";
-}
+    }
 
-<h2>Index</h2>
+    <div class="container">
+        <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MultimediaTypeName)
-        </th>
-        <th></th>
-    </tr>
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+                </p>
+            </div>
+        </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MultimediaTypeName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MultimediaTypeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MultimediaTypeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MultimediaTypeId })
-        </td>
-    </tr>
-}
-
-</table>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.MultimediaTypeName)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model) {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.MultimediaTypeName)</td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.MultimediaTypeId }, new { @class = "btn btn-info" }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.MultimediaTypeId }, new { @class = "btn btn-success" }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.MultimediaTypeId }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
