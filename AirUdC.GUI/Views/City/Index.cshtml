@@ -4,45 +4,43 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Ciudades</h2>
 
 <br />
 
-<a class="btn btn-success" target="_blank" href="~/City/CityByCountryReport?Format=PDF" >
-    Generar reporte
-    <i class="fas fa-print"> </i>
-</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-success" href="~/City/CityByCountryReport?Format=PDF" target="_blank">
+                Generar reporte <i class="fas fa-print"></i>
+            </a>
+        </div>
+        <div class="col-md-6 text-right">
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CityName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country.CountryName)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CityName)
-        </td>
-
-        <td>
-            @Html.DisplayFor(modelItem => item.Country.CountryName)
-        </td>
-
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CityId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CityId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CityId })
-        </td>
-    </tr>
-}
-
-</table>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.CityName)</th>
+                <th>@Html.DisplayNameFor(model => model.Country.CountryName)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.CityName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Country.CountryName)</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CityId }, new { @class = "btn btn-primary btn-sm mr-1" })
+                        @Html.ActionLink("Details", "Details", new { id = item.CityId }, new { @class = "btn btn-info btn-sm mr-1" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CityId }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<AirUdC.GUI.Models.Manager.PropertyOwnerModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lista de Propietarios";
 }
 
-<h2>Index</h2>
+
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create")" class="btn btn-primary">Crear Nuevo</a>
 </p>
 <table class="table">
     <tr>
@@ -24,34 +24,34 @@
             @Html.DisplayNameFor(model => model.Cellphone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Photo)
+            Photo
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FamilyName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cellphone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Photo)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PropertyOwnerId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PropertyOwnerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PropertyOwnerId })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FamilyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cellphone)
+            </td>
+            <td>
+                <img src="@item.Photo" alt="Owner Photo" style="max-width: 100px; max-height: 100px;" />
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.PropertyOwnerId })" class="btn btn-warning">Edit</a> |
+                <a href="@Url.Action("Details", new { id = item.PropertyOwnerId })" class="btn btn-info">Details</a> |
+                <a href="@Url.Action("Delete", new { id = item.PropertyOwnerId })" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
 </table>

@@ -38,5 +38,11 @@ namespace AirUdC.GUI.Controllers
             ViewBag.Message = "hola";
             return View();
         }
+
+        public ActionResult Reports()
+        {
+            ViewBag.Message = "hola";
+            return View();
+        }
     }
 }

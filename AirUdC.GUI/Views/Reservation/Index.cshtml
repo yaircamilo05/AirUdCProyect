@@ -9,50 +9,56 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EnterDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OutDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Customer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.property)
-        </th>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EnterDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OutDate)
+                </th>
+                <th>
+                    Customer
+                </th>
+                <th>
+                    Property ID
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EnterDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OutDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.FirstName)
 
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EnterDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OutDate)
-        </td>
-<td>
-            @Html.DisplayFor(modelItem => item.Customer)
-</td>
-<td>
-            @Html.DisplayFor(modelItem => item.property)
-</td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReservationId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReservationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReservationId })
-        </td>
-    </tr>
-}
-
-</table>
+                        @Html.DisplayFor(modelItem => item.Customer.FamilyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.property.PropertyId)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ReservationId }, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ReservationId }, new { @class = "btn btn-info" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ReservationId }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
