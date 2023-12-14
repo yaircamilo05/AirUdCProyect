@@ -228,10 +228,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Manager\CustomerController.cs" />
-    <Compile Include="Controllers\Manager\FeedbacksController.cs" />
+    <Compile Include="Controllers\Manager\FeedbackController.cs" />
     <Compile Include="Controllers\Manager\PropertyController.cs" />
     <Compile Include="Controllers\Manager\PropertyMultimediaController.cs" />
     <Compile Include="Controllers\Manager\PropertyOwnerController.cs" />
+    <Compile Include="Controllers\Manager\ReservationController.cs" />
     <Compile Include="Controllers\Parameters\CityController.cs" />
     <Compile Include="Controllers\Parameters\CountryController.cs" />
     <Compile Include="Controllers\Parameters\MultimediaTypeController.cs" />
@@ -243,6 +244,7 @@
     <Compile Include="Mappers\Manager\FeedbackMapperGUI.cs" />
     <Compile Include="Mappers\Manager\PropertyMultimediaMapperGUI.cs" />
     <Compile Include="Mappers\Manager\PropertyOwnerMapperGUI.cs" />
+    <Compile Include="Mappers\Manager\ReservationMapperGUI.cs" />
     <Compile Include="Mappers\MapperBaseGUI.cs" />
     <Compile Include="Mappers\Parameters\CityMapperGUI.cs" />
     <Compile Include="Mappers\Parameters\CountryMapperGUI.cs" />
@@ -264,6 +266,9 @@
     <Compile Include="Models\ReportModels\PropertiesByCitiesReportModel.cs" />
     <Compile Include="Models\ReportModels\PropertiesByOwnerReportModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Datasets\CitiesByCountryDataSet.cs">
+      <DependentUpon>CitiesByCountryDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Datasets\CitiesByCountryDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -423,16 +428,21 @@
     <Content Include="Views\PropertyOwner\Details.cshtml" />
     <Content Include="Views\PropertyOwner\Edit.cshtml" />
     <Content Include="Views\PropertyOwner\Index.cshtml" />
-    <Content Include="Views\Feedbacks\Create.cshtml" />
-    <Content Include="Views\Feedbacks\Delete.cshtml" />
-    <Content Include="Views\Feedbacks\Details.cshtml" />
-    <Content Include="Views\Feedbacks\Edit.cshtml" />
-    <Content Include="Views\Feedbacks\Index.cshtml" />
     <Content Include="Views\PropertyMultimedia\Create.cshtml" />
     <Content Include="Views\PropertyMultimedia\Delete.cshtml" />
     <Content Include="Views\PropertyMultimedia\Details.cshtml" />
     <Content Include="Views\PropertyMultimedia\Edit.cshtml" />
     <Content Include="Views\PropertyMultimedia\Index.cshtml" />
+    <Content Include="Views\Feedback\Create.cshtml" />
+    <Content Include="Views\Feedback\Delete.cshtml" />
+    <Content Include="Views\Feedback\Details.cshtml" />
+    <Content Include="Views\Feedback\Edit.cshtml" />
+    <Content Include="Views\Feedback\Index.cshtml" />
+    <Content Include="Views\Reservation\Create.cshtml" />
+    <Content Include="Views\Reservation\Delete.cshtml" />
+    <Content Include="Views\Reservation\Details.cshtml" />
+    <Content Include="Views\Reservation\Edit.cshtml" />
+    <Content Include="Views\Reservation\Index.cshtml" />
     <Content Include="Views\Property\Create.cshtml" />
     <Content Include="Views\Property\Delete.cshtml" />
     <Content Include="Views\Property\Details.cshtml" />

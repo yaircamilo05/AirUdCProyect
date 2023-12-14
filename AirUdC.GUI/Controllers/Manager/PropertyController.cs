@@ -7,7 +7,6 @@ using AirbnbUdC.Application.Implementation.Implementation.Manager;
 using AirUdC.GUI.Models.Parameters;
 using AirUdC.GUI.Mappers.Parameters;
 using AirbnbUdC.Application.Contracts.Contracts.Parameters;
-using AirbnbUdC.Application.Implementation.Implementation.Parameters;
 using AirbnbUdC.Repository.Contracts.Contrats.Parameters;
 using AirbnbUdC.Repository.Implementation.Implementations.Parameters;
 using System;
@@ -32,14 +31,14 @@ namespace AirUdC.GUI.Controllers.Manager
 
         // GET: Property
 
-        public PropertyController()
+        public PropertyController(IPropertyApplication app, ICityApplication appCity)
         {
-            _app = new PropertyImplementationApplication();
+            _app = app;
             _propertyMapper = new PropertyMapperGUI();
             _appPropertyOwner = new PropertyOwnerImplementationApplication();
             _propertyOwnerMapper = new PropertyOwnerMapperGUI();
             _cityRepository = new CityImplementationRepository();
-            _appCity = new CityImplementationApplication(_cityRepository);
+            _appCity = appCity;
             _cityMapper = new CityMapperGUI();
             _appReservation = new ReservationImplementationApplication();
         }
@@ -106,6 +105,10 @@ namespace AirUdC.GUI.Controllers.Manager
         private void FillListForViewPropertyOwner(PropertyModel property)
         {
             property.PropertyOwnerList = _propertyOwnerMapper.MapListT1toT2(_appPropertyOwner.GetAllRecords(string.Empty));
+            foreach (var item in property.PropertyOwnerList)
+            {
+                item.Fullname = item.FirstName+" " + item.FamilyName;
+            }
         }
 
         private void FillListForViewCity(PropertyModel property)

@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using Utilities.Constants.MessagesConstants;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace AirUdC.GUI.Models.Parameters

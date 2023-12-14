@@ -1,4 +1,4 @@
-﻿@model AirbnbUdC.Repository.Implementation.DataModel.Feedback
+﻿@model AirUdC.GUI.Models.Manager.FeedbackModel
 
 @{
     ViewBag.Title = "Details";
@@ -7,17 +7,9 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Feedback</h4>
+    <h4>FeedbackModel</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Reservation.Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Reservation.Id)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.RateForOwner)
         </dt>
@@ -50,9 +42,17 @@
             @Html.DisplayFor(model => model.CommentsForCustomer)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Reservation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reservation)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FeedbackId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

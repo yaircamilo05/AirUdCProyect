@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace AirUdC.GUI.Models.Manager
@@ -13,11 +15,18 @@ namespace AirUdC.GUI.Models.Manager
         public decimal Price { get; set; }
 
         [DisplayName("Fecha de entrada")]
-        public string EnterDate { get; set; }
+        public DateTime EnterDate { get; set; }
 
         [DisplayName("Fecha de salida")]
-        public string OutDate { get; set; }
+        public DateTime OutDate { get; set; }
+        [DisplayName("propiedad")]
         public PropertyModel property { get; set; }
-        public CustomerModel customer { get; set; }
+        [DisplayName("Cliente")]
+        public CustomerModel Customer { get; set; }
+
+        public IEnumerable<CustomerModel> customers { get; set; }
+
+        public IEnumerable<PropertyModel> properties { get; set; }
+
     }
 }

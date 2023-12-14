@@ -6,6 +6,12 @@ namespace AirUdC.GUI.Mappers.Manager
 {
     public class FeedbackMapperGUI : MapperBaseGUI<FeedbackDto, FeedbackModel>
     {
+        private readonly ReservationMapperGUI _reservationMapper;
+
+        public FeedbackMapperGUI()
+        {
+            _reservationMapper = new ReservationMapperGUI();
+        }
         public override IEnumerable<FeedbackModel> MapListT1toT2(IEnumerable<FeedbackDto> value)
         {
             IList<FeedbackModel> list = new List<FeedbackModel>();
@@ -35,7 +41,7 @@ namespace AirUdC.GUI.Mappers.Manager
                 CommentsForOwner = value.CommentsForOwner,
                 RateForCustomer = value.RateForCustomer,
                 CommentsForCustomer = value.CommentsForCustomer,
-                Reservation = value.Reservation
+                Reservation = _reservationMapper.MapT1toT2(value.Reservation)
             };
         }
 
@@ -48,7 +54,7 @@ namespace AirUdC.GUI.Mappers.Manager
                CommentsForOwner = value.CommentsForOwner,
                RateForCustomer = value.RateForCustomer,
                CommentsForCustomer = value.CommentsForCustomer,
-               Reservation = value.Reservation
+               Reservation = _reservationMapper.MapT2toT1(value.Reservation)
             };
         }
     }

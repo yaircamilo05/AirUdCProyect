@@ -12,9 +12,9 @@ namespace AirUdC.GUI.Controllers.Manager
         private readonly ICustomerApplication _app;
         private readonly CustomerMapperGUI _customerMapper;
 
-        public CustomerController()
+        public CustomerController(ICustomerApplication app)
         {
-            _app = new CustomerImplementationApplication();
+            _app = app;
             _customerMapper = new CustomerMapperGUI();
         }
 

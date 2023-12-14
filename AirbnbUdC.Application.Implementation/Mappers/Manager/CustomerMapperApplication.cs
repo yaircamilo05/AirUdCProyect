@@ -29,6 +29,10 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Manager
 
         public override CustomerDto MapT1toT2(CustomerDbModel value)
         {
+            if (value == null)
+            {
+                return new CustomerDto();
+            }
             return new CustomerDto()
             {
                 CustomerId = value.CustomerId,

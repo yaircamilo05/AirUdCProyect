@@ -28,28 +28,35 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.Manager
 
         public override ReservationDbModel MapT1toT2(Reservation value)
         {
+            if (value == null)
+            {
+                return new ReservationDbModel();
+            }
             return new ReservationDbModel()
             {
                 ReservationId = value.Id,
                 EnterDate = value.EnterDate,
                 OutDate = value.OutDate,
                 Price = value.Price,
-                //property = new PropertyMapperRepository().MapT1toT2(value.property),
-                //custumer = new CustumerMapperRepository().MapT1toT2(value.custumer)
+                property = new PropertyMapperRepository().MapT1toT2(value.Property),
+                customer = new CustomerMapperRepository().MapT1toT2(value.Customer)
             };
         }
 
         public override Reservation MapT2toT1(ReservationDbModel value)
         {
+            if (value == null)
+            {
+                return new Reservation();
+            }
             return new Reservation()
             {
                 Id = value.ReservationId,
                 EnterDate = value.EnterDate,
                 OutDate = value.OutDate,
                 Price = value.Price,
-                //property = new PropertyMapperRepository().MapT2toT1(value.property),
-                //custumer = new CustumerMapperRepository().MapT2toT1(value.custumer)
-
+                PropertyId = value.property.PropertyId,
+                CustomerId = value.customer.CustomerId
             };
         }
     }

@@ -15,9 +15,9 @@ namespace AirUdC.GUI.Controllers.Manager
         private readonly IPropertyOwnerApplication _app;
         private readonly PropertyOwnerMapperGUI _propertyOwnerMapper;
 
-        public PropertyOwnerController()
+        public PropertyOwnerController(IPropertyOwnerApplication app )
         {
-            _app = new PropertyOwnerImplementationApplication();
+            _app = app;
             _propertyOwnerMapper = new PropertyOwnerMapperGUI();
 
         }

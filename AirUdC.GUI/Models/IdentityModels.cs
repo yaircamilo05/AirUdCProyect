@@ -48,5 +48,7 @@ namespace AirUdC.GUI.Models
         public System.Data.Entity.DbSet<AirbnbUdC.Repository.Implementation.DataModel.MultimediaType> MultimediaTypes { get; set; }
 
         public System.Data.Entity.DbSet<AirbnbUdC.Repository.Implementation.DataModel.Property> Properties { get; set; }
+
+        public System.Data.Entity.DbSet<AirUdC.GUI.Models.Manager.ReservationModel> ReservationModels { get; set; }
     }
 }
