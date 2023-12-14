@@ -101,6 +101,10 @@ namespace AirUdC.GUI.Controllers.Manager
         private void FillListForViewPropertyOwner(PropertyModel property)
         {
             property.PropertyOwnerList = _propertyOwnerMapper.MapListT1toT2(_appPropertyOwner.GetAllRecords(string.Empty));
+            foreach (var item in property.PropertyOwnerList)
+            {
+                item.Fullname = item.FirstName+" " + item.FamilyName;
+            }
         }
 
         private void FillListForViewCity(PropertyModel property)

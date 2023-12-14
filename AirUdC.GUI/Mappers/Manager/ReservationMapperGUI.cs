@@ -9,8 +9,14 @@ namespace AirUdC.GUI.Mappers.Manager
 {
     public class ReservationMapperGUI : MapperBaseGUI<ReservationDto, ReservationModel>
     {
-        private readonly PropertyOwnerMapperGUI _propertyMapper;
+        private readonly PropertyMapperGUI _propertyMapper;
         private readonly CustomerMapperGUI _customerMapper;
+
+        public ReservationMapperGUI()
+        {
+            _propertyMapper = new PropertyMapperGUI();
+            _customerMapper = new CustomerMapperGUI();
+        }
         public override IEnumerable<ReservationModel> MapListT1toT2(IEnumerable<ReservationDto> value)
         {
             IList<ReservationModel> list = new List<ReservationModel>();
@@ -40,7 +46,7 @@ namespace AirUdC.GUI.Mappers.Manager
                 EnterDate = value.EnterDate,
                 OutDate = value.OutDate,
                 property = _propertyMapper.MapT1toT2(value.property),
-                customer = _customerMapper.MapT1toT2(value.customer)
+                Customer = _customerMapper.MapT1toT2(value.customer)
             };
         }
 
@@ -54,7 +60,7 @@ namespace AirUdC.GUI.Mappers.Manager
                 EnterDate = value.EnterDate,
                 OutDate = value.OutDate,
                 property = _propertyMapper.MapT2toT1(value.property),
-                customer = _customerMapper.MapT2toT1(value.customer)
+                customer = _customerMapper.MapT2toT1(value.Customer)
             };
         }
     }

@@ -24,7 +24,7 @@
     </div>
     <div class="form-group col-sm-4">
         @Html.LabelFor(model => model.PropertyOwner.PropertyOwnerId, htmlAttributes: new { @class = "control-label col-md-2" })
-        @Html.DropDownListFor(model => model.PropertyOwner.PropertyOwnerId, new SelectList(Model.PropertyOwnerList, "PropertyOwnerId", "FirstName"), new { @class = "form-control selectpicker border", @id = "selRegion", @data_live_search = "true" })
+        @Html.DropDownListFor(model => model.PropertyOwner.PropertyOwnerId, new SelectList(Model.PropertyOwnerList, "PropertyOwnerId", "Fullname"), new { @class = "form-control selectpicker border", @id = "selRegion", @data_live_search = "true" })
         @Html.ValidationMessageFor(model => model.PropertyOwner.PropertyOwnerId, "", new { @class = "text-danger" })
     </div>
     <div class="form-group col-sm-4">

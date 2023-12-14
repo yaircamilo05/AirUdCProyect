@@ -35,8 +35,8 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Manager
                 EnterDate = value.EnterDate,
                 OutDate = value.OutDate,
                 Price = value.Price,
-                //property = new PropertyMapperApplication().MapT1toT2(value.property),
-                //custumer = new CustumerMapperApplication().MapT1toT2(value.custumer)
+                property = new PropertyMapperApplication().MapT1toT2(value.property),
+                customer = new CustomerMapperApplication().MapT1toT2(value.customer)
               
             };
         }
@@ -49,8 +49,8 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Manager
                 EnterDate = value.EnterDate,
                 OutDate = value.OutDate,
                 Price = value.Price,
-                //property = new PropertyMapperApplication().MapT2toT1(value.property),
-                //custumer = new CustumerMapperApplication().MapT2toT1(value.custumer)
+                property = new PropertyMapperApplication().MapT2toT1(value.property),
+                customer = new CustomerMapperApplication().MapT2toT1(value.customer)
             };
         }
     }

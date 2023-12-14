@@ -44,6 +44,10 @@ namespace AirUdC.GUI.Mappers.Manager
 
         public override PropertyOwnerDto MapT2toT1(PropertyOwnerModel value)
         {
+            if (value == null)
+            {
+                return null;
+            }
             return new PropertyOwnerDto()
             {
                 PropertyOwnerId = value.PropertyOwnerId,

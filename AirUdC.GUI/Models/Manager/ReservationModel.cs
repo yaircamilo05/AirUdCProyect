@@ -19,8 +19,14 @@ namespace AirUdC.GUI.Models.Manager
 
         [DisplayName("Fecha de salida")]
         public DateTime OutDate { get; set; }
-        public PropertyOwnerModel property { get; set; }
-        public CustomerModel customer { get; set; }
+        [DisplayName("propiedad")]
+        public PropertyModel property { get; set; }
+        [DisplayName("Cliente")]
+        public CustomerModel Customer { get; set; }
+
+        public IEnumerable<CustomerModel> customers { get; set; }
+
+        public IEnumerable<PropertyModel> properties { get; set; }
 
     }
 }

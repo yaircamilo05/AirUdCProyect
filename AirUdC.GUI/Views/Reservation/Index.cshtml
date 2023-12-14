@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.OutDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.customer)
+            @Html.DisplayNameFor(model => model.Customer)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.property)
@@ -41,12 +41,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.OutDate)
         </td>
+<td>
+            @Html.DisplayFor(modelItem => item.Customer)
+</td>
+<td>
+            @Html.DisplayFor(modelItem => item.property)
+</td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ReservationId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ReservationId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ReservationId })
-            @Html.ActionLink("Reservar", "Reservar", new { id=item.customer })
-            @Html.ActionLink("Reservar", "Reservar", new { id=item.property })
         </td>
     </tr>
 }

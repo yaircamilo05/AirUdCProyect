@@ -9,7 +9,7 @@ namespace AirbnbUdC.Application.Contracts.DTO.Parameters
         public decimal Price { get; set; }
         public DateTime EnterDate { get; set; }
         public DateTime OutDate { get; set; }
-        public PropertyOwnerDto property { get; set; }
+        public PropertyDto property { get; set; }
         public CustomerDto customer { get; set; }
     }
 }

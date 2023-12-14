@@ -41,6 +41,7 @@ namespace AirUdC.GUI.Mappers.Manager
 
         public override CustomerDto MapT2toT1(CustomerModel value)
         {
+            if (value == null) return new CustomerDto();
             return new CustomerDto()
             {
                 CustomerId = value.CustomerId,

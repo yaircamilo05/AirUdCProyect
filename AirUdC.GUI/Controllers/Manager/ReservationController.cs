@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Web.Mvc;
 using AirbnbUdC.Application.Contracts.Contracts.Manager;
 using AirUdC.GUI.Mappers.Manager;
@@ -11,17 +12,25 @@ namespace AirUdC.GUI.Controllers.Manager
 
         private readonly IReservationApplication _app;
         private readonly ReservationMapperGUI _reservationMapper;
+        private readonly ICustomerApplication _appCustomer;
+        private readonly IPropertyApplication _appProperty;
+        private readonly PropertyMapperGUI _propertyMapper;
+        private readonly CustomerMapperGUI _customerMapper;
 
-        public ReservationController(IReservationApplication app)
+        public ReservationController(IReservationApplication app, ICustomerApplication appCustomer,
+            IPropertyApplication appProperty)
         {
             _app = app;
             _reservationMapper = new ReservationMapperGUI();
+            _appCustomer = appCustomer;
+            _appProperty = appProperty;
+            _propertyMapper = new PropertyMapperGUI();
+            _customerMapper = new CustomerMapperGUI();
         }
 
         // GET: Reservation
         public ActionResult Index()
         {
-            
             var records = _app.GetAllRecords();
             var mapped = _reservationMapper.MapListT1toT2(records);
             return View(mapped);
@@ -46,7 +55,9 @@ namespace AirUdC.GUI.Controllers.Manager
         // GET: Reservation/Create
         public ActionResult Create()
         {
-            return View();
+            ReservationModel reservationModel = new ReservationModel();
+            FillListsForView(reservationModel);
+            return View(reservationModel);
         }
 
         // POST: Reservation/Create
@@ -56,7 +67,25 @@ namespace AirUdC.GUI.Controllers.Manager
         [ValidateAntiForgeryToken]
         public ActionResult Create(ReservationModel reservationModel)
         {
-            if(ModelState.IsValid)
+            ModelState.Remove("Customer.FirstName");
+            ModelState.Remove("Customer.FamilyName");
+            ModelState.Remove("Customer.Email");
+            ModelState.Remove("Customer.Cellphone");
+            ModelState.Remove("Customer.Photo");
+            ModelState.Remove("property.PropertyAddress");
+            ModelState.Remove("property.city");
+            ModelState.Remove("property.PropertyOwner");
+            ModelState.Remove("property.CustomerAmount");
+            ModelState.Remove("property.Price");
+            ModelState.Remove("property.Latitude");
+            ModelState.Remove("property.Longitude");
+            ModelState.Remove("property.CheckinData");
+            ModelState.Remove("property.CheckoutData");
+            ModelState.Remove("property.Details");
+            ModelState.Remove("property.Pets");
+            ModelState.Remove("property.Freezer");
+            ModelState.Remove("property.LaundryService");
+            if (ModelState.IsValid)
             {
                 _app.CreateRecord(_reservationMapper.MapT2toT1(reservationModel));
                 return RedirectToAction("Index");
@@ -116,6 +145,12 @@ namespace AirUdC.GUI.Controllers.Manager
         {
             _app.DeleteRecord(id);
             return RedirectToAction("Index");
+        }
+
+        private void FillListsForView(ReservationModel reservationModel)
+        {
+            reservationModel.customers = _customerMapper.MapListT1toT2(_appCustomer.GetAllRecords(""));
+            reservationModel.properties = _propertyMapper.MapListT1toT2(_appProperty.GetAllRecords(""));
         }
     }
 }

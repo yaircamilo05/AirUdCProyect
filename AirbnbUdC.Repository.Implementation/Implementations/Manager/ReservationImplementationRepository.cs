@@ -35,10 +35,10 @@ namespace AirbnbUdC.Repository.Implementation.Implementations.Manager
                 else
                 {
                    
-                    var country =  _mapper.MapT2toT1(record);
-                    var countryDb = db.Reservation.Add(country);
-                    db.SaveChangesAsync();
-                    var response = _mapper.MapT1toT2(countryDb);
+                    var reservation =  _mapper.MapT2toT1(record);
+                    var reservationDB = db.Reservation.Add(reservation);
+                    db.SaveChanges();
+                    var response = _mapper.MapT1toT2(reservationDB);
                     return response;
                 }
             }
