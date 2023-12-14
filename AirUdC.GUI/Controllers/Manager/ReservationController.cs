@@ -1,115 +1,115 @@
 ﻿using System.Net;
 using System.Web.Mvc;
 using AirbnbUdC.Application.Contracts.Contracts.Manager;
-using AirbnbUdC.Application.Implementation.Implementation.Manager;
 using AirUdC.GUI.Mappers.Manager;
 using AirUdC.GUI.Models.Manager;
 
 namespace AirUdC.GUI.Controllers.Manager
 {
-    public class CustomerController : Controller
+    public class ReservationController : Controller
     {
-        private readonly ICustomerApplication _app;
-        private readonly CustomerMapperGUI _customerMapper;
 
-        public CustomerController(ICustomerApplication app)
+        private readonly IReservationApplication _app;
+        private readonly ReservationMapperGUI _reservationMapper;
+
+        public ReservationController(IReservationApplication app)
         {
             _app = app;
-            _customerMapper = new CustomerMapperGUI();
+            _reservationMapper = new ReservationMapperGUI();
         }
 
-        // GET: Customer
-        public ActionResult Index(string filter = "")
+        // GET: Reservation
+        public ActionResult Index()
         {
-            var records = _app.GetAllRecords(filter);
-            var mapped = _customerMapper.MapListT1toT2(records);
+            
+            var records = _app.GetAllRecords();
+            var mapped = _reservationMapper.MapListT1toT2(records);
             return View(mapped);
         }
 
-        // GET: Customer/Details/5
+        // GET: Reservation/Details/5
         public ActionResult Details(int id)
         {
             if (id <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var customer = _app.GetRecord(id);
-            CustomerModel customerModel = _customerMapper.MapT1toT2(customer);
-            if (customerModel == null)
+            var reservation = _app.GetRecord(id);
+            ReservationModel reservationModel = _reservationMapper.MapT1toT2(reservation);
+            if (reservationModel == null)
             {
                 return HttpNotFound();
             }
-            return View(customerModel);
+            return View(reservationModel);
         }
 
-        // GET: Customer/Create
+        // GET: Reservation/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Customer/Create
+        // POST: Reservation/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,FirstName,FamilyName,Email,Cellphone,Photo")] CustomerModel customerModel)
+        public ActionResult Create(ReservationModel reservationModel)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
-                _app.CreateRecord(_customerMapper.MapT2toT1(customerModel));
+                _app.CreateRecord(_reservationMapper.MapT2toT1(reservationModel));
                 return RedirectToAction("Index");
             }
-
-            return View(customerModel);
+            return View(reservationModel);
         }
 
-        // GET: Customer/Edit/5
+        // GET: Reservation/Edit/5
         public ActionResult Edit(int id)
         {
             if (id <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CustomerModel customerModel = _customerMapper.MapT1toT2(_app.GetRecord(id));
-            if (customerModel == null)
+            ReservationModel reservationModel = _reservationMapper.MapT1toT2(_app.GetRecord(id));
+            if (reservationModel == null)
             {
                 return HttpNotFound();
             }
-            return View(customerModel);
+            return View(reservationModel);
         }
 
-        // POST: Customer/Edit/5
+        // POST: Reservation/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,FirstName,FamilyName,Email,Cellphone,Photo")] CustomerModel customerModel)
+        public ActionResult Edit(ReservationModel reservationModel)
         {
             if (ModelState.IsValid)
             {
-                _app.UpdateRecord(_customerMapper.MapT2toT1(customerModel));
+              _app.UpdateRecord(_reservationMapper.MapT2toT1(reservationModel));
                 return RedirectToAction("Index");
             }
-            return View(customerModel);
+            return View(reservationModel);
         }
 
-        // GET: Customer/Delete/5
+        // GET: Reservation/Delete/5
         public ActionResult Delete(int id)
         {
-            if (id <= 0)
+            if (id<=0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CustomerModel customerModel = _customerMapper.MapT1toT2(_app.GetRecord(id));
-            if (customerModel == null)
+            ReservationModel reservationModel = _reservationMapper.MapT1toT2(_app.GetRecord(id));
+            if (reservationModel == null)
             {
                 return HttpNotFound();
             }
-            return View(customerModel);
+            return View(reservationModel);
         }
 
-        // POST: Customer/Delete/5
+        // POST: Reservation/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

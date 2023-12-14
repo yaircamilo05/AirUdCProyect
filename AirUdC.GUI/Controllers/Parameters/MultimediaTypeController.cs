@@ -16,9 +16,9 @@ namespace AirUdC.GUI.Controllers.Parameters
         private readonly MultimediaTypeMapperGUI _multimediaTypeMapper;
         // GET: MultimediaType
 
-        public MultimediaTypeController()
+        public MultimediaTypeController(IMultimediaTypeApplication app)
         {
-            _app = new MultimediaTypeImplementationApplication();
+            _app = app;
             _multimediaTypeMapper = new MultimediaTypeMapperGUI();
         }
         public ActionResult Index(string filter="")

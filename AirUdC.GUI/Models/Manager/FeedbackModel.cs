@@ -1,4 +1,5 @@
-﻿using AirbnbUdC.Application.Contracts.DTO.Parameters;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,6 +20,8 @@ namespace AirUdC.GUI.Models.Manager
         [DisplayName("Comentarios Cliente")]
         public string CommentsForCustomer { get; set; }
         [DisplayName("Reserva")]
-        public ReservationDto Reservation { get; set; }
+        public ReservationModel Reservation { get; set; }
+
+        public IEnumerable<ReservationModel> Reservations { get; set; }
     }
 }
