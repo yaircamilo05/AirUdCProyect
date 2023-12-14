@@ -85,6 +85,7 @@ namespace AirUdC.GUI.Controllers.Parameters
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             CityModel cityModel = _cityMapper.MapT1toT2(_app.GetRecord(id));
+            FillListForView(cityModel);
             if (cityModel == null)
             {
                 return HttpNotFound();
@@ -97,8 +98,9 @@ namespace AirUdC.GUI.Controllers.Parameters
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CityId,CityName")] CityModel cityModel)
-        {
+        public ActionResult Edit(CityModel cityModel)
+        {   
+            ModelState.Remove("Country.CountryName");
             if (ModelState.IsValid)
             {
                 _app.UpdateRecord(_cityMapper.MapT2toT1(cityModel));
