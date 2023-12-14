@@ -63,6 +63,7 @@ namespace AirUdC.GUI.Mappers.Manager
 
         public override PropertyDto MapT2toT1(PropertyModel value)
         {
+            if (value == null) return new PropertyDto();
             return new PropertyDto()
             {
                 PropertyId = value.PropertyId,

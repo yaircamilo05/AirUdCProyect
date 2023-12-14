@@ -28,6 +28,10 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.Manager
 
         public override ReservationDbModel MapT1toT2(Reservation value)
         {
+            if (value == null)
+            {
+                return new ReservationDbModel();
+            }
             return new ReservationDbModel()
             {
                 ReservationId = value.Id,
@@ -41,6 +45,10 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.Manager
 
         public override Reservation MapT2toT1(ReservationDbModel value)
         {
+            if (value == null)
+            {
+                return new Reservation();
+            }
             return new Reservation()
             {
                 Id = value.ReservationId,

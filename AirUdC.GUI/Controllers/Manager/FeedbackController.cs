@@ -10,12 +10,16 @@ namespace AirUdC.GUI.Controllers.Manager
     {
         private readonly IFeedbackApplication _app;
         private readonly FeedbackMapperGUI _feedbackMapper;
+        private readonly ReservationMapperGUI _reservationMapper;
+        private readonly IReservationApplication _appReservation;
 
 
-        public FeedbackController(IFeedbackApplication app)
+        public FeedbackController(IFeedbackApplication app, IReservationApplication appReservation)
         {
             _app = app;
             _feedbackMapper = new FeedbackMapperGUI();
+            _reservationMapper = new ReservationMapperGUI();
+            _appReservation = appReservation;
         }
         // GET: Feedbacks
         public ActionResult Index()
@@ -44,7 +48,9 @@ namespace AirUdC.GUI.Controllers.Manager
         // GET: Feedbacks/Create
         public ActionResult Create()
         {
-            return View();
+            FeedbackModel model = new FeedbackModel();
+            FillListForView(model);
+            return View(model);
         }
 
         // POST: Feedbacks/Create
@@ -52,8 +58,13 @@ namespace AirUdC.GUI.Controllers.Manager
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,RateForOwner,CommentsForOwner,RateForCustomer,CommentsForCustomer,ReservationId")] FeedbackModel feedback)
+        public ActionResult Create(FeedbackModel feedback)
         {
+            ModelState.Remove("Reservation.Price");
+            ModelState.Remove("Reservation.EnterDate");
+            ModelState.Remove("Reservation.OutDate");
+            ModelState.Remove("Reservation.property");
+            ModelState.Remove("Reservation.Customer");
             if (ModelState.IsValid)
             {
                 _app.CreateRecord(_feedbackMapper.MapT2toT1(feedback));
@@ -115,6 +126,11 @@ namespace AirUdC.GUI.Controllers.Manager
         {
             _app.DeleteRecord(id);
             return RedirectToAction("Index");
+        }
+
+        private void FillListForView(FeedbackModel feedbackModel)
+        {
+            feedbackModel.Reservations = _reservationMapper.MapListT1toT2(_appReservation.GetAllRecords());
         }
     }
 }

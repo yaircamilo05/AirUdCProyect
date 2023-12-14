@@ -33,6 +33,8 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.Manager
 
         public override PropertyDbModel MapT1toT2(Property value)
         {
+            if (value == null)
+                return new PropertyDbModel();
             return new PropertyDbModel()
             {
                 PropertyId = value.Id,

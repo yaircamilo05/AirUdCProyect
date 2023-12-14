@@ -39,6 +39,10 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Parameters
 
         public override CountryDbModel MapT2toT1(CountryDto value)
         {
+            if (value == null)
+            {
+                return new CountryDbModel();
+            }
             return new CountryDbModel()
             {
                 CountryId = value.CountryId,

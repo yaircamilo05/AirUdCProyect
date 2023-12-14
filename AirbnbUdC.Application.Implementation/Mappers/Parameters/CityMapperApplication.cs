@@ -28,6 +28,10 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Parameters
 
         public override CityDto MapT1toT2(CityDbModel value)
         {
+            if (value == null)
+            {
+                return new CityDto();
+            }
             return new CityDto()
             {
                 CityId = value.CityId,
@@ -38,6 +42,7 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Parameters
 
         public override CityDbModel MapT2toT1(CityDto value)
         {
+            if (value == null) return new CityDbModel();
             return new CityDbModel()
             {
                 CityId = value.CityId,

@@ -52,7 +52,7 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.Manager
                CommentsForCustomer = value.CommentsForCustomer,
                RateForOwner = value.RateForOwner,
                CommentsForOwner = value.CommentsForOwner,
-               Reservation = _reservationMapper.MapT2toT1(value.Reservation)
+                ReservationId = value.Reservation.ReservationId
             };
         }
     }

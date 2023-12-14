@@ -7,6 +7,11 @@ namespace AirUdC.GUI.Mappers.Manager
     public class FeedbackMapperGUI : MapperBaseGUI<FeedbackDto, FeedbackModel>
     {
         private readonly ReservationMapperGUI _reservationMapper;
+
+        public FeedbackMapperGUI()
+        {
+            _reservationMapper = new ReservationMapperGUI();
+        }
         public override IEnumerable<FeedbackModel> MapListT1toT2(IEnumerable<FeedbackDto> value)
         {
             IList<FeedbackModel> list = new List<FeedbackModel>();

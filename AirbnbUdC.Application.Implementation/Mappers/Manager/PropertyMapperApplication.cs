@@ -29,6 +29,10 @@ namespace AirbnbUdC.Application.Implementation.Mappers.Manager
 
         public override PropertyDto MapT1toT2(PropertyDbModel value)
         {
+            if (value == null)
+            {
+                return new PropertyDto();
+            }
             //creame el objeto de tipo PropertyDto todos los datos se llaman igual
             return new PropertyDto()
             {

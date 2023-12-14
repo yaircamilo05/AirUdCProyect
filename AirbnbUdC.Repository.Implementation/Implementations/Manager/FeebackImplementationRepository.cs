@@ -30,7 +30,7 @@ namespace AirbnbUdC.Repository.Implementation.Implementations.Manager
             {
                 var feedback = _mapper.MapT2toT1(record);
                 var feedbackDb = db.Feedback.Add(feedback);
-                db.SaveChangesAsync();
+                db.SaveChanges();
                 var response = _mapper.MapT1toT2(feedbackDb);
                 return response;
                 
