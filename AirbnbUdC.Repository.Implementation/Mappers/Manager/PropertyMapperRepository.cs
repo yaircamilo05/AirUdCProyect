@@ -37,8 +37,8 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.Manager
             {
                 PropertyId = value.Id,
                 PropertyAddress = value.PropertyAddress,
-                city = new CityMapperRepository().MapT1toT2(value.City),
                 PropertyOwner = new PropertyOwnerMapperRepository().MapT1toT2(value.PropertyOwner),
+                city = new CityMapperRepository().MapT1toT2(value.City),
                 CustomerAmount = value.CustomerAmount,
                 Price = value.Price,
                 Latitude = value.Latitude,
@@ -58,8 +58,6 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.Manager
             {
                 Id = value.PropertyId,
                 PropertyAddress = value.PropertyAddress,
-                City = new CityMapperRepository().MapT2toT1(value.city),
-                PropertyOwner = new PropertyOwnerMapperRepository().MapT2toT1(value.PropertyOwner),
                 CustomerAmount = value.CustomerAmount,
                 Price = value.Price,
                 Latitude = value.Latitude,
@@ -69,7 +67,9 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.Manager
                 Details = value.Details,
                 Pets = value.Pets,
                 Freezer = value.Freezer,
-                LaundryService = value.LaundryService
+                LaundryService = value.LaundryService,
+                OwnerId = value.PropertyOwner.PropertyOwnerId,
+                CityId = value.city.CityId
             };
         }
     }

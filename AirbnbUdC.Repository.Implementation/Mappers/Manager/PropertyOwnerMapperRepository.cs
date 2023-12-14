@@ -28,6 +28,10 @@ namespace AirbnbUdC.Repository.Implementation.Mappers.Manager
 
         public override PropertyOwnerDbModel MapT1toT2(PropertyOwner value)
         {
+            if (value == null)
+            {
+                return new PropertyOwnerDbModel();
+            }
             return new PropertyOwnerDbModel()
             {
                 PropertyOwnerId = value.Id,

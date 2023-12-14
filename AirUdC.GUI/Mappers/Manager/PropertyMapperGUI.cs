@@ -2,6 +2,7 @@
 using AirbnbUdC.Repository.Implementation.DataModel;
 using AirUdC.GUI.Mappers.Parameters;
 using AirUdC.GUI.Models.Manager;
+using AirUdC.GUI.Models.Parameters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,11 @@ namespace AirUdC.GUI.Mappers.Manager
     {   
         private PropertyOwnerMapperGUI _propertyOwnerMapperGUI;
         private CityMapperGUI _cityMapperGUI;
+        public PropertyMapperGUI()
+        {
+            _propertyOwnerMapperGUI = new PropertyOwnerMapperGUI();
+            _cityMapperGUI = new CityMapperGUI();
+        }
         public override IEnumerable<PropertyModel> MapListT1toT2(IEnumerable<PropertyDto> value)
         {
             IList<PropertyModel> list = new List<PropertyModel>();
@@ -40,8 +46,8 @@ namespace AirUdC.GUI.Mappers.Manager
                 PropertyId = value.PropertyId,
                 PropertyAddress = value.PropertyAddress,
                 Price = value.Price,
-                city = _cityMapperGUI.MapT1toT2(value.city),
                 PropertyOwner = _propertyOwnerMapperGUI.MapT1toT2(value.PropertyOwner),
+                city = _cityMapperGUI.MapT1toT2(value.city),
                 CustomerAmount = value.CustomerAmount,
                 Latitude = value.Latitude,
                 Longitude = value.Longitude,

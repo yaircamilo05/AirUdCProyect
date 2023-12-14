@@ -10,6 +10,8 @@ using AirbnbUdC.Application.Contracts.Contracts.Parameters;
 using AirbnbUdC.Application.Implementation.Implementation.Parameters;
 using AirbnbUdC.Repository.Contracts.Contrats.Parameters;
 using AirbnbUdC.Repository.Implementation.Implementations.Parameters;
+using System;
+using AirbnbUdC.Application.Contracts.DTO.Parameters;
 
 namespace AirUdC.GUI.Controllers.Manager
 {
@@ -74,10 +76,22 @@ namespace AirUdC.GUI.Controllers.Manager
         [ValidateAntiForgeryToken]
         public ActionResult Create(PropertyModel propertyModel)
         {
+            //aqui
+            Console.WriteLine(propertyModel.city.ToString());
+            ModelState.Remove("PropertyOwner.PropertyOwnerName");
             ModelState.Remove("PropertyOwner.FirstName");
+            ModelState.Remove("PropertyOwner.FamilyName");
+            ModelState.Remove("PropertyOwner.Email");
+            ModelState.Remove("PropertyOwner.Cellphone");
+            ModelState.Remove("PropertyOwner.Photo");
             ModelState.Remove("city.CityName");
+            ModelState.Remove("city.Country");
+            
             if (ModelState.IsValid)
             {
+                CityDto cityDto = _appCity.GetRecord(propertyModel.city.CityId);
+                CityModel cityModel = _cityMapper.MapT1toT2(cityDto);
+                propertyModel.city = cityModel;
                 _app.CreateRecord(_propertyMapper.MapT2toT1(propertyModel));
                 return RedirectToAction("Index");
             }
