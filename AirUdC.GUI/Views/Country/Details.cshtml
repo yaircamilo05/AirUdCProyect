@@ -1,26 +1,28 @@
 ﻿@model AirUdC.GUI.Models.Parameters.CountryModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalle del pais";
 }
 
-<h2>Details</h2>
+<h2>Detalle del pais</h2>
 
-<div>
-    <h4>CountryModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CountryName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CountryName)
-        </dd>
-
-    </dl>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Detalles</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.CountryName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.CountryName)
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="mt-3">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CountryId }, new { @class = "btn btn-primary mr-2" }) |
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CountryId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
