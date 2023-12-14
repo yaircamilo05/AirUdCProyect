@@ -12,9 +12,9 @@ namespace AirbnbUdC.Application.Implementation.Implementation.Parameters
     {
         private readonly IMultimediaTypeRepository _multimediaTypeRepository;
 
-        public MultimediaTypeImplementationApplication()
+        public MultimediaTypeImplementationApplication(IMultimediaTypeRepository multimediaTypeRepository)
         {
-            this._multimediaTypeRepository = new MultimediaTypeImplementationRepository();
+            this._multimediaTypeRepository = multimediaTypeRepository;
         }
 
         /// <summary>

@@ -13,10 +13,10 @@ namespace AirbnbUdC.Application.Implementation.Implementation.Manager
         
             private readonly CustomerMapperApplication _mapper;
             private readonly ICustomerRepository _CustomerRepository;
-            public CustomerImplementationApplication()
+            public CustomerImplementationApplication(ICustomerRepository customerApplication)
             {
                 this._mapper = new CustomerMapperApplication();
-                this._CustomerRepository = new CustomerImplementationRepository();
+                this._CustomerRepository = customerApplication;
             }
             public CustomerDto CreateRecord(CustomerDto record)
             {

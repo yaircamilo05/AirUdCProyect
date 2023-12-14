@@ -8,8 +8,9 @@ namespace AirbnbUdC.Repository.Contracts.DbModel.Manager
         public decimal Price { get; set; }
         public DateTime EnterDate { get; set; }
         public DateTime OutDate { get; set; }
-      //  public PropertyDbModel property { get; set; }
-      //  public CustumerDbModel custumer { get; set; }
+        public PropertyDbModel property { get; set; }
+      
+        public CustomerDbModel customer { get; set; }
       
     }
 }

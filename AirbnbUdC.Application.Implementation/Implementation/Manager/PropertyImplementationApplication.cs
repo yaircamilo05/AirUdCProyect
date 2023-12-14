@@ -12,10 +12,10 @@ namespace AirbnbUdC.Application.Implementation.Implementation.Manager
     {
         private readonly PropertyMapperApplication _mapper;
         private readonly IPropertyRepository _propertyRepository;
-        public PropertyImplementationApplication()
+        public PropertyImplementationApplication(IPropertyRepository propertyRepository)
         {
             this._mapper = new PropertyMapperApplication();
-            this._propertyRepository = new PropertyImplementationRepository();
+            this._propertyRepository = propertyRepository;
         }
 
         public PropertyDto CreateRecord(PropertyDto record)
