@@ -9,19 +9,23 @@
 
 <ul class="list-group text-center" style="max-width: 300px; margin: 0 auto;">
     <li class="list-group-item">
-        @Html.ActionLink("Propietarios", "Index", "PropertyOwner", new { area = "" }, new { @class = "nav-link" })
+        <a class="btn btn-success" target="_blank" href="~/Property/PropertiesByCitiesReport?Format=PDF">
+            Reporte de ciudades por país
+        </a>    </li>
+    <li class="list-group-item">
+        <a class="btn btn-primary" target="_blank" href="~/Property/PropertiesByCitiesReport?Format=PDF">
+            Cantidad de propiedades por ciudad
+        </a>
     </li>
     <li class="list-group-item">
-        @Html.ActionLink("Propiedades", "Index", "Property", new { area = "" }, new { @class = "nav-link" })
+        <a class="btn btn-info" target="_blank" href="~/Property/PropertiesByCitiesReport?Format=PDF">
+            Propiedades por propietario y numero de reservas
+        </a>
     </li>
     <li class="list-group-item">
-        @Html.ActionLink("Comentarios y calificación", "Index", "Feedback", new { area = "" }, new { @class = "nav-link" })
-    </li>
-    <li class="list-group-item">
-        @Html.ActionLink("Reservaciones", "Index", "Reservation", new { area = "" }, new { @class = "nav-link" })
-    </li>
-    <li class="list-group-item">
-        @Html.ActionLink("Clientes", "Index", "Customer", new { area = "" }, new { @class = "nav-link" })
+        <a class="btn btn-warning" target="_blank" href="~/Property/PropertiesByCitiesReport?Format=PDF">
+            Comentarios y calificación de las propiedades
+        </a>
     </li>
 </ul>
 
