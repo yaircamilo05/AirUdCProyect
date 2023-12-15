@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<AirUdC.GUI.Models.Manager.PropertyModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Propiedades";
 }
 
 <div class="container">
-    <h2>Index</h2>
+    <h2>Propiedades</h2>
 
     <div class="row">
         <div class="col-md-12">
             <p>
-                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Agregar Nuevo", "Create", null, new { @class = "btn btn-primary" })
             </p>
         </div>
     </div>
@@ -38,9 +38,9 @@
                             <td>@Html.DisplayFor(modelItem => item.CheckinData)</td>
                             <td>@Html.DisplayFor(modelItem => item.CheckoutData)</td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.PropertyId }, new { @class = "btn btn-info" }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.PropertyId }, new { @class = "btn btn-success" }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.PropertyId }, new { @class = "btn btn-danger" })
+                                @Html.ActionLink("Editar", "Edit", new { id = item.PropertyId }, new { @class = "btn btn-info" }) |
+                                @Html.ActionLink("Detalles", "Details", new { id = item.PropertyId }, new { @class = "btn btn-success" }) |
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.PropertyId }, new { @class = "btn btn-danger" })
                             </td>
                         </tr>
                     }

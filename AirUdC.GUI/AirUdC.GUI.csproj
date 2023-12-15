@@ -262,6 +262,9 @@
     <Compile Include="Models\Parameters\CountryModel.cs" />
     <Compile Include="Models\Parameters\MultimediaTypeModel.cs" />
     <Compile Include="Models\ReportModels\CitiesByCountryReportModel.cs" />
+    <Compile Include="Models\ReportModels\FeedbackByPropertyReportModel.cs" />
+    <Compile Include="Models\ReportModels\PropertiesByCitiesReportModel.cs" />
+    <Compile Include="Models\ReportModels\PropertiesByOwnerReportModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\Datasets\CitiesByCountryDataSet.cs">
       <DependentUpon>CitiesByCountryDataSet.xsd</DependentUpon>
@@ -270,6 +273,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CitiesByCountryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Datasets\FeedbackByPropertyDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FeedbackByPropertyDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Datasets\PropertiesByCitiesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropertiesByCitiesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Datasets\PropertiesByOwnerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropertiesByOwnerDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Startup.cs" />
@@ -310,6 +328,39 @@
     </None>
     <Content Include="Reports\Datasets\CitiesByCountryDataSet.xss">
       <DependentUpon>CitiesByCountryDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\Datasets\PropertiesByCitiesDataSet.xsc">
+      <DependentUpon>PropertiesByCitiesDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\Datasets\FeedbackByPropertyDataSet.xsc">
+      <DependentUpon>FeedbackByPropertyDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\Datasets\FeedbackByPropertyDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FeedbackByPropertyDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\Datasets\FeedbackByPropertyDataSet.xss">
+      <DependentUpon>FeedbackByPropertyDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\Datasets\PropertiesByCitiesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PropertiesByCitiesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\Datasets\PropertiesByCitiesDataSet.xss">
+      <DependentUpon>PropertiesByCitiesDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\Datasets\PropertiesByOwnerDataSet.xsc">
+      <DependentUpon>PropertiesByOwnerDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\Datasets\PropertiesByOwnerDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PropertiesByOwnerDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\Datasets\PropertiesByOwnerDataSet.xss">
+      <DependentUpon>PropertiesByOwnerDataSet.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -466,6 +517,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\RdlcFiles\CitiesByCountryReport.rdlc" />
+    <EmbeddedResource Include="Reports\RdlcFiles\FeedbackByPropertyReport.rdlc" />
+    <EmbeddedResource Include="Reports\RdlcFiles\PropertiesByCitiesReport.rdlc" />
+    <EmbeddedResource Include="Reports\RdlcFiles\PropertiesByOwnerReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<AirUdC.GUI.Models.Manager.ReservationModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Reservaciones";
 }
 
-<h2>Index</h2>
+<h2>Reservaciones</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn btn-primary" @Html.ActionLink("Agregar Nuevo", "Create")></a> 
 </p>
 <div class="table-responsive">
     <table class="table table-striped">
@@ -53,9 +53,9 @@
                         @Html.DisplayFor(modelItem => item.property.PropertyId)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ReservationId }, new { @class = "btn btn-primary" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ReservationId }, new { @class = "btn btn-info" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ReservationId }, new { @class = "btn btn-danger" })
+                        @Html.ActionLink("Editar", "Edit", new { id = item.ReservationId }, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.ReservationId }, new { @class = "btn btn-info" }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.ReservationId }, new { @class = "btn btn-danger" })
                     </td>
                 </tr>
             }

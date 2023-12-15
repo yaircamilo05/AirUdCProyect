@@ -37,6 +37,10 @@ namespace AirUdC.GUI.Mappers.Parameters
 
         public override CountryDto MapT2toT1(CountryModel value)
         {
+           if (value == null)
+            {
+               return new CountryDto();
+           }   
            return new CountryDto
            {
                CountryId = value.CountryId,

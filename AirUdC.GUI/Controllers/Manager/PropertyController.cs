@@ -11,6 +11,10 @@ using AirbnbUdC.Repository.Contracts.Contrats.Parameters;
 using AirbnbUdC.Repository.Implementation.Implementations.Parameters;
 using System;
 using AirbnbUdC.Application.Contracts.DTO.Parameters;
+using AirUdC.GUI.Models.ReportModels;
+using Microsoft.Reporting.WebForms;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AirUdC.GUI.Controllers.Manager
 {
@@ -23,6 +27,7 @@ namespace AirUdC.GUI.Controllers.Manager
         private readonly PropertyOwnerMapperGUI _propertyOwnerMapper;
         private readonly CityMapperGUI _cityMapper;
         private readonly ICityRepository _cityRepository;
+        private readonly IReservationApplication _appReservation;
 
         // GET: Property
 
@@ -35,6 +40,7 @@ namespace AirUdC.GUI.Controllers.Manager
             _cityRepository = new CityImplementationRepository();
             _appCity = appCity;
             _cityMapper = new CityMapperGUI();
+            _appReservation = new ReservationImplementationApplication();
         }
         public ActionResult Index(string filter = "")
         {
@@ -75,8 +81,6 @@ namespace AirUdC.GUI.Controllers.Manager
         [ValidateAntiForgeryToken]
         public ActionResult Create(PropertyModel propertyModel)
         {
-            //aqui
-            Console.WriteLine(propertyModel.city.ToString());
             ModelState.Remove("PropertyOwner.PropertyOwnerName");
             ModelState.Remove("PropertyOwner.FirstName");
             ModelState.Remove("PropertyOwner.FamilyName");
@@ -120,6 +124,8 @@ namespace AirUdC.GUI.Controllers.Manager
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             PropertyModel propertyModel = _propertyMapper.MapT1toT2(_app.GetRecord(id));
+            FillListForViewPropertyOwner(propertyModel);
+            FillListForViewCity(propertyModel);
             if (propertyModel == null)
             {
                 return HttpNotFound();
@@ -132,8 +138,16 @@ namespace AirUdC.GUI.Controllers.Manager
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PropertyId, PropertyAddress, PropertyOwner, city, PropertyAmount, Price, Latitude, Longitude, CheckinData, CheckoutData, Details, Pets, Freezer, LaundryService")] PropertyModel propertyModel)
+        public ActionResult Edit(PropertyModel propertyModel)
         {
+            ModelState.Remove("PropertyOwner.PropertyOwnerName");
+            ModelState.Remove("PropertyOwner.FirstName");
+            ModelState.Remove("PropertyOwner.FamilyName");
+            ModelState.Remove("PropertyOwner.Email");
+            ModelState.Remove("PropertyOwner.Cellphone");
+            ModelState.Remove("PropertyOwner.Photo");
+            ModelState.Remove("city.CityName");
+            ModelState.Remove("city.Country");
             if (ModelState.IsValid)
             {
                 _app.UpdateRecord(_propertyMapper.MapT2toT1(propertyModel));
@@ -165,5 +179,104 @@ namespace AirUdC.GUI.Controllers.Manager
             _app.DeleteRecord(id);
             return RedirectToAction("Index");
         }
+
+        public ActionResult PropertiesByCitiesReport(string format = "PDF")
+        {
+            var records = _app.GetAllRecords(string.Empty);
+
+            List<PropertiesByCitiesReportModel> reportModels = new List<PropertiesByCitiesReportModel>();
+
+            foreach (var item in records)
+            {
+                
+                reportModels.Add(new PropertiesByCitiesReportModel
+                {
+                   Id = item.PropertyId.ToString(),
+                   CityId = item.city.CityId.ToString(),
+                   CityName = item.city.CityName,
+                   Count = _app.GetAllRecordsByCityId(item.city.CityId).ToList().Count.ToString()
+                });
+            }
+
+
+
+            string reportPath = Server.MapPath("~/Reports/RdlcFiles/PropertiesByCitiesReport.rdlc");
+            LocalReport lr = new LocalReport();
+
+            //variables para renderizar el reporte
+
+            Warning[] warnings;
+            string[] streams;
+            byte[] renderedBytes;
+            string mimeType, encoding, fileNameExtension;
+
+            lr.ReportPath = reportPath;
+            //debe ser el mismo nombre que el dataset del reporte .rdlc
+            ReportDataSource rd = new ReportDataSource("PropertiesByCitiesDataSet", reportModels);
+            lr.DataSources.Add(rd);
+
+            renderedBytes = lr.Render(
+            format,
+            string.Empty,
+            out mimeType,
+            out encoding,
+            out fileNameExtension,
+            out streams,
+            out warnings
+            );
+
+            return File(renderedBytes, mimeType);
+        }
+
+        public ActionResult PropertiesByOwnerReport(string format = "PDF")
+        {
+            var records = _app.GetAllRecords(string.Empty);
+
+            List<PropertiesByOwnerReportModel> reportModels = new List<PropertiesByOwnerReportModel>();
+
+            foreach (var item in records)
+            {
+                reportModels.Add(new PropertiesByOwnerReportModel
+                {
+                    Id = item.PropertyId.ToString(),
+                    PropertyAddress = item.PropertyAddress,
+                    CustomerAmount = item.CustomerAmount.ToString(),
+                    Price = item.Price.ToString(),
+                    PropertyOwnerId = item.PropertyOwner.PropertyOwnerId.ToString(),
+                    PropertyOwnerFullName = item.PropertyOwner.FirstName + " " + item.PropertyOwner.FamilyName,
+                    Reservations = _appReservation.GetAllRecordsByPropertyId(item.PropertyId).ToList().Count.ToString(),
+                });
+            }
+
+
+
+            string reportPath = Server.MapPath("~/Reports/RdlcFiles/PropertiesByOwnerReport.rdlc");
+            LocalReport lr = new LocalReport();
+
+            //variables para renderizar el reporte
+
+            Warning[] warnings;
+            string[] streams;
+            byte[] renderedBytes;
+            string mimeType, encoding, fileNameExtension;
+
+            lr.ReportPath = reportPath;
+            //debe ser el mismo nombre que el dataset del reporte .rdlc
+            ReportDataSource rd = new ReportDataSource("PropertiesByOwnerDataSet", reportModels);
+            lr.DataSources.Add(rd);
+
+            renderedBytes = lr.Render(
+            format,
+            string.Empty,
+            out mimeType,
+            out encoding,
+            out fileNameExtension,
+            out streams,
+            out warnings
+            );
+
+            return File(renderedBytes, mimeType);
+        }
     }
 }
+

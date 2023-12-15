@@ -10,7 +10,7 @@ namespace AirUdC.GUI.Models.Parameters
         [DisplayName("País Id")]
         public int CountryId { get; set; }
 
-        [DisplayName("Pais")]
+        [DisplayName("País")]
         [Required(ErrorMessage = MessagesConstantsCountry.requiredName)]
         [StringLength(50, ErrorMessage = MessagesConstantsCountry.stringLength, MinimumLength = 4)]
         public string CountryName { get; set; }

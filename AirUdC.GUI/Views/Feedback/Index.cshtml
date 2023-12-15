@@ -1,13 +1,12 @@
 ﻿@model IEnumerable<AirUdC.GUI.Models.Manager.FeedbackModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Retroalimentaciones";
 }
 
-<h2>Index</h2>
-
+<h2>Retroalimentaciones</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn btn-primary" href="@Url.Action("Create")">Agregar Nuevo</a>
 </p>
 <div class="table-responsive">
     <table class="table table-striped">
@@ -51,9 +50,9 @@
                         @Html.DisplayFor(modelItem => item.Reservation.ReservationId)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.FeedbackId }, new { @class = "btn btn-primary" }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.FeedbackId }, new { @class = "btn btn-info" }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.FeedbackId }, new { @class = "btn btn-danger" })
+                        @Html.ActionLink("Editar", "Edit", new { id = item.FeedbackId }, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.FeedbackId }, new { @class = "btn btn-info" }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.FeedbackId }, new { @class = "btn btn-danger" })
                     </td>
                 </tr>
             }

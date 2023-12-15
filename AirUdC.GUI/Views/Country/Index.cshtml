@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<AirUdC.GUI.Models.Parameters.CountryModel>
 
 @{
-    ViewBag.Title = "Paises";
+    ViewBag.Title = "Países";
 }
 
-<h2>Paises</h2>
+<h2>Países</h2>
 
 <div class="container">
-    <a href="@Url.Action("Create")" class="btn btn-success mb-3">Create pais</a>
+    <a href="@Url.Action("Create")" class="btn btn-success mb-3">Agregar Nuevo</a>
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -25,9 +25,9 @@
                         @Html.DisplayFor(modelItem => item.CountryName)
                     </td>
                     <td>
-                        <a href="@Url.Action("Edit", new { id = item.CountryId })" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="@Url.Action("Details", new { id = item.CountryId })" class="btn btn-info btn-sm">Details</a>
-                        <a href="@Url.Action("Delete", new { id = item.CountryId })" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="@Url.Action("Edit", new { id = item.CountryId })" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="@Url.Action("Details", new { id = item.CountryId })" class="btn btn-info btn-sm">Detalles</a>
+                        <a href="@Url.Action("Delete", new { id = item.CountryId })" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
             }

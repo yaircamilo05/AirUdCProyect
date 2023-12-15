@@ -1,24 +1,24 @@
 ﻿@model IEnumerable<AirUdC.GUI.Models.Manager.CustomerModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Clientes";
 }
 
-<h2>Customer List</h2>
+<h2>Clientes</h2>
 
 <div class="container">
     <p>
-        <a class="btn btn-primary" href="@Url.Action("Create")">Create New</a>
+        <a class="btn btn-primary" href="@Url.Action("Create")">Agregar Nuevo</a>
     </p>
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Primer nombre</th>
+                <th>Apellido</th>
                 <th>Email</th>
-                <th>Cellphone</th>
-                <th>Photo</th>
-                <th>Actions</th>
+                <th>Teléfono</th>
+                <th>Foto</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -33,9 +33,9 @@
                         <img src="@item.Photo" alt="Customer Photo" class="img-thumbnail" style="max-width: 100px; max-height: 100px;" />
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }, new { @class = "btn btn-primary btn-sm" })
-                        @Html.ActionLink("Details", "Details", new { id = item.CustomerId }, new { @class = "btn btn-info btn-sm" })
-                        @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId }, new { @class = "btn btn-danger btn-sm" })
+                        @Html.ActionLink("Editar", "Edit", new { id = item.CustomerId }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Detalles", "Details", new { id = item.CustomerId }, new { @class = "btn btn-info btn-sm" })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.CustomerId }, new { @class = "btn btn-danger btn-sm" })
                     </td>
                 </tr>
             }
