@@ -1,8 +1,12 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.Net;
 using System.Web.Mvc;
 using AirbnbUdC.Application.Contracts.Contracts.Manager;
 using AirUdC.GUI.Mappers.Manager;
 using AirUdC.GUI.Models.Manager;
+using AirUdC.GUI.Models.ReportModels;
+using Microsoft.Reporting.WebForms;
+using WebGrease;
 
 namespace AirUdC.GUI.Controllers.Manager
 {
@@ -131,6 +135,56 @@ namespace AirUdC.GUI.Controllers.Manager
         private void FillListForView(FeedbackModel feedbackModel)
         {
             feedbackModel.Reservations = _reservationMapper.MapListT1toT2(_appReservation.GetAllRecords());
+        }
+
+        public ActionResult FeedbackByPropertyReport(string format = "PDF")
+        {
+            var records = _app.GetAllRecords();
+
+            List<FeedbackByPropertyReportModel> reportModels = new List<FeedbackByPropertyReportModel>();
+
+            foreach (var item in records)
+            {
+                
+                reportModels.Add(new FeedbackByPropertyReportModel
+                {
+                    Id = item.FeedbackId.ToString(),
+                    RateCustomer = item.RateForOwner.ToString(),
+                    ReservationId = item.Reservation.ReservationId.ToString(),
+                    PropertyId = item.Reservation.property.PropertyId.ToString(),
+                    PropertyAddress = item.Reservation.property.PropertyAddress,
+                    CommentsForOwner = item.CommentsForOwner,
+                    AvgRate = _app.GetAvgRateByPropertyId(item.Reservation.property.PropertyId)
+                    
+                });
+            }
+
+            string reportPath = Server.MapPath("~/Reports/RdlcFiles/FeedbackByPropertyReport.rdlc");
+            LocalReport lr = new LocalReport();
+
+            //variables para renderizar el reporte
+
+            Warning[] warnings;
+            string[] streams;
+            byte[] renderedBytes;
+            string mimeType, encoding, fileNameExtension;
+
+            lr.ReportPath = reportPath;
+            //debe ser el mismo nombre que el dataset del reporte .rdlc
+            ReportDataSource rd = new ReportDataSource("FeedbackByPropertyDataSet", reportModels);
+            lr.DataSources.Add(rd);
+
+            renderedBytes = lr.Render(
+            format,
+            string.Empty,
+            out mimeType,
+            out encoding,
+            out fileNameExtension,
+            out streams,
+            out warnings
+            );
+
+            return File(renderedBytes, mimeType);
         }
     }
 }

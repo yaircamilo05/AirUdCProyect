@@ -11,6 +11,8 @@ namespace AirUdC.GUI.Models.ReportModels
         public string ReservationId { get; set; }
         public string PropertyId { get; set; }
         public string RateCustomer { get; set; }
-        public string PropertyAdress { get; set; }
+        public string PropertyAddress { get; set; }
+        public string CommentsForOwner { get; set; }
+        public double AvgRate { get; set; }
     }
 }

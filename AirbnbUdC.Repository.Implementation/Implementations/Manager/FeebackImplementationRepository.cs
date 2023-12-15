@@ -122,5 +122,21 @@ namespace AirbnbUdC.Repository.Implementation.Implementations.Manager
                 return db.SaveChanges();
             }
         }
+
+        public double GetAvgRateByPropertyId(long propertyId)
+        {
+            using (Core_DBEntities db = new Core_DBEntities())
+            {
+                var records = db.Feedback.Where(Feedback => Feedback.Reservation.Property.Id == propertyId);
+                if (records.Count() > 0)
+                {
+                    return (double)records.Average(Feedback => Feedback.RateForOwner);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
     }
 }

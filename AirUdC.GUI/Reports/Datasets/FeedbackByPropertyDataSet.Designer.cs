@@ -898,6 +898,10 @@ namespace AirUdC.GUI.Reports.Datasets {
             
             private global::System.Data.DataColumn columnPropertyAddress;
             
+            private global::System.Data.DataColumn columnCommentsForOwner;
+            
+            private global::System.Data.DataColumn columnAvgRate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public FeedbackDataTable() {
@@ -973,6 +977,22 @@ namespace AirUdC.GUI.Reports.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CommentsForOwnerColumn {
+                get {
+                    return this.columnCommentsForOwner;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AvgRateColumn {
+                get {
+                    return this.columnAvgRate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1008,14 +1028,16 @@ namespace AirUdC.GUI.Reports.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FeedbackRow AddFeedbackRow(string Id, ReservationRow parentReservationRowByReservation_Feedback, string RateCustomer, string PropertyId, string PropertyAddress) {
+            public FeedbackRow AddFeedbackRow(string Id, ReservationRow parentReservationRowByReservation_Feedback, string RateCustomer, string PropertyId, string PropertyAddress, string CommentsForOwner, double AvgRate) {
                 FeedbackRow rowFeedbackRow = ((FeedbackRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         null,
                         RateCustomer,
                         PropertyId,
-                        PropertyAddress};
+                        PropertyAddress,
+                        CommentsForOwner,
+                        AvgRate};
                 if ((parentReservationRowByReservation_Feedback != null)) {
                     columnValuesArray[1] = parentReservationRowByReservation_Feedback[0];
                 }
@@ -1046,6 +1068,8 @@ namespace AirUdC.GUI.Reports.Datasets {
                 this.columnRateCustomer = base.Columns["RateCustomer"];
                 this.columnPropertyId = base.Columns["PropertyId"];
                 this.columnPropertyAddress = base.Columns["PropertyAddress"];
+                this.columnCommentsForOwner = base.Columns["CommentsForOwner"];
+                this.columnAvgRate = base.Columns["AvgRate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1061,6 +1085,10 @@ namespace AirUdC.GUI.Reports.Datasets {
                 base.Columns.Add(this.columnPropertyId);
                 this.columnPropertyAddress = new global::System.Data.DataColumn("PropertyAddress", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPropertyAddress);
+                this.columnCommentsForOwner = new global::System.Data.DataColumn("CommentsForOwner", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCommentsForOwner);
+                this.columnAvgRate = new global::System.Data.DataColumn("AvgRate", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAvgRate);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1458,6 +1486,38 @@ namespace AirUdC.GUI.Reports.Datasets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string CommentsForOwner {
+                get {
+                    try {
+                        return ((string)(this[this.tableFeedback.CommentsForOwnerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CommentsForOwner\' de la tabla \'Feedback\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFeedback.CommentsForOwnerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public double AvgRate {
+                get {
+                    try {
+                        return ((double)(this[this.tableFeedback.AvgRateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'AvgRate\' de la tabla \'Feedback\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFeedback.AvgRateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ReservationRow ReservationRow {
                 get {
                     return ((ReservationRow)(this.GetParentRow(this.Table.ParentRelations["Reservation_Feedback"])));
@@ -1525,6 +1585,30 @@ namespace AirUdC.GUI.Reports.Datasets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetPropertyAddressNull() {
                 this[this.tableFeedback.PropertyAddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCommentsForOwnerNull() {
+                return this.IsNull(this.tableFeedback.CommentsForOwnerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCommentsForOwnerNull() {
+                this[this.tableFeedback.CommentsForOwnerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsAvgRateNull() {
+                return this.IsNull(this.tableFeedback.AvgRateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetAvgRateNull() {
+                this[this.tableFeedback.AvgRateColumn] = global::System.Convert.DBNull;
             }
         }
         

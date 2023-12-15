@@ -54,5 +54,10 @@ namespace AirbnbUdC.Application.Implementation.Implementation.Manager
             FeedbackDbModel mapped = _mapper.MapT2toT1(record);
             return this._feedbackRepository.UpdateRecord(mapped);
         }
+
+        public double GetAvgRateByPropertyId(long propertyId)
+        {
+            return this._feedbackRepository.GetAvgRateByPropertyId(propertyId);
+        }
     }
 }

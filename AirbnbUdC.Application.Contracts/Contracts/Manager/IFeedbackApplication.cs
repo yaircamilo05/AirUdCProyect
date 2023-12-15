@@ -11,5 +11,6 @@ namespace AirbnbUdC.Application.Contracts.Contracts.Manager
         FeedbackDto GetRecord(int recordId);
         IEnumerable<FeedbackDto> GetAllRecords();
         IEnumerable<FeedbackDto> GetAllRecordsByReservationId(long reservationId);
+        double GetAvgRateByPropertyId(long propertyId);
     }
 }

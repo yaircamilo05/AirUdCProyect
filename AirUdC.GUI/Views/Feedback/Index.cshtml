@@ -5,7 +5,12 @@
 }
 
 <h2>Index</h2>
-
+<br />
+<a class="btn btn-success" target="_blank" href="~/Feedback/FeedbackByPropertyReport?Format=PDF">
+    Generar reporte
+    <i class="fas fa-print"> </i>
+</a>
+<br />
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -29,29 +34,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RateForOwner)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CommentsForOwner)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RateForCustomer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CommentsForCustomer)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Reservation)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FeedbackId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FeedbackId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FeedbackId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RateForOwner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentsForOwner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RateForCustomer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentsForCustomer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reservation)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FeedbackId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FeedbackId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FeedbackId })
+            </td>
+        </tr>
+    }
 
 </table>
